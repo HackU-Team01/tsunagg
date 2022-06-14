@@ -1,8 +1,9 @@
 import { useForm, SubmitHandler } from 'react-hook-form'; 
+  
+import firebase from "firebase/app";
+import { db } from "../lib/firebase";
+import { useRef } from 'react';
 
-　
-import firebase from "firebase"; 
- 
 
 
 type Inputs = {
@@ -20,9 +21,8 @@ export default function Input_Form() {
         watch,
         formState: { errors }
     } = useForm<Inputs>();
-
  
-    
+     
     const onSubmit: SubmitHandler<Inputs> = (data) => {
       console.log('onSubmit:', data);
       console.log('username:', watch('username'));  
@@ -30,6 +30,45 @@ export default function Input_Form() {
       console.log('hobby:', watch('hobby'));  
       console.log('user_comments:', watch('user_comments'));    
 
+      
+      (async () => {
+        try { 
+          console.log('test2');
+          const userRef = db.collection('test_data').doc('uJk9YqdKtX69uNCWwvDi')
+          await useRef.update({
+            user_name_firebase: "watch('username')",
+          })
+
+          const userDoc = await userRef.get()
+          console.log(userDoc.data())
+
+        } catch (err) {
+          console.log(`Error: ${JSON.stringify(err)}`)
+        }
+ 
+
+
+        try { 
+          console.log('test1');
+          const userRef = db.collection('test_data').doc('uJk9YqdKtX69uNCWwvDi') 
+          const userDoc = await userRef.get()
+
+          if (userDoc.exists) {
+            console.log(userDoc.id)
+            console.log(userDoc.data())
+            console.log(userDoc.get('user_name_firebase'))
+          } else {
+            console.log('No such document!')
+          }
+          await db.app.delete()
+        } catch (err) {
+          console.log(`Error!: ${JSON.stringify(err)}`)
+        }
+
+
+ 
+      })()
+ 
     } 
     
  
