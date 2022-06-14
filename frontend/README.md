@@ -1,34 +1,92 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Frontend開発
 
-## Getting Started
+## 環境
 
-First, run the development server:
+`package.json` を参照ください。
 
-```bash
-npm run dev
-# or
-yarn dev
+## 使用しているパッケージ
+
+### [`tailwindcss`](https://tailwindcss.com/)
+
+プロジェクトのスタイリングは Tailwind CSS を使用しています。`postcss` と `autoprefixer` も一緒に使用しています。
+
+### [`next-head-seo`](https://github.com/catnose99/next-head-seo)
+
+catnose さんが作成した SEO カスタマイズ系の軽量パッケージです。`Layout` コンポーネントで使用しています。
+→特に使わなくてもいいかな。。とは思ったんですが良さそうだったので入れました。
+
+### [`husky`](https://typicode.github.io/husky/#/)
+
+`husky` は、git でコミットする直前に登録したコマンドを実行してくれるツールです。コミット前に Prettier と ESLint を走らせるようにしています。
+（カスタマイズするとプッシュ前にコマンドは走らせることもできる）
+→初めて使うんですが割と便利そうだったので入れました。
+
+あわせて [`lint-staged`](https://github.com/okonet/lint-staged) も使用していて、こちらは stage に上がっているファイルに対して Lint をかけてくれるツールです。
+
+# 開発に参加するまでの流れ
+
+以下の手順を踏んで開発に参加しましょう。
+
+## 1. `git clone`
+
+以下のコマンドを実行してクローンします。
+
+```shell
+git clone https://github.com/HackU-Team01/tsunagg.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 2. `npm install`
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+`npm install`を行います。`npm`のバージョンは Volta で固定していますが、Volta を使っていない人は、`npm -v`で 8 系かどうかを確かめます。
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+```shell
+#npmのバージョンを確認（8系でない場合は、8系をインストール）
+npm -v
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+#ディレクトリの移動(必ずfrontend配下で以降のコマンドを実施してください)
+cd frontend
 
-## Learn More
+#パッケージをインストール
+npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 3. `npm run dev`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`npm run dev`でローカルサーバー(http://localhost:3333/)を立ち上げます。
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```shell
+npm run dev
+```
 
-## Deploy on Vercel
+# ディレクトリ構成について
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+今回は、すべてのファイルを `src` に入れています。
+コンポーネントのディレクトリは機能ベースで切る方針をとっています。
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```js
+.
+├── .next
+├── public // 画像ファイルを格納する
+├── src
+│   ├── components // コンポーネントは機能ベースでディレクトリを切る
+│   │   ├── common // 複数の機能にまたがって使用するコンポーネント
+│   │   │   ├── parts // さらにコンポーネントの中で使い回せるものはpartsに切り出す
+│   │   │   │   ├── Button.tsx
+│   │   │   │   └── ...
+│   │   │   ├── Layout.tsx
+│   │   │   ├── Header.tsx
+│   │   │   └── ...
+│   │   ├── form // 例: フォームの機能で使用するコンポーネント
+│   │   └── ...
+│   ├── hooks // カスタムフックを配置する
+│   ├── lib // APIを叩く処理やClassでの型定義ファイルを配置する
+│   ├── pages // ページテンプレートを配置する
+│   │   ├── api
+│   │   │   └──hello.ts //デフォルトのやつ
+│   │   ├── _app.tsx
+│   │   ├── _document.tsx
+│   │   └── index.tsx
+│   └── styles
+...
+```
+
