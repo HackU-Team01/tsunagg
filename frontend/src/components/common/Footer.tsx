@@ -11,7 +11,7 @@ const Footer = (): JSX.Element => {
           {/* ロゴ */}
           <Link href="/">
             <a>
-              <Image src="/vercel.svg" width={120} height={60} alt="vercel" />
+              tunagg
             </a>
           </Link>
         </div>

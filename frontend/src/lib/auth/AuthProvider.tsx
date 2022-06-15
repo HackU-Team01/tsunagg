@@ -3,6 +3,8 @@ import { FC, createContext, useEffect, useState } from "react";
 import { auth } from "../firebase";
 import { useRouter } from "next/router";
 
+
+ 
 type AuthContextProps = {
   currentUser: firebase.User | null | undefined;
 };
