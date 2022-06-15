@@ -3,22 +3,27 @@ import { createContext } from "react";
 import { db } from "../../lib/firebase"; 
 import { Button } from "../../components/common/parts/Button"; 
 
+import firebase from "firebase";
+
 type Inputs = {
   Name: string;
   Place_born: string;
   Place_live: string; 
   Hobby: string;
   Sentence: string;
-};
+}; 
 
-const user_input_data = createContext<Inputs>({ 
-  Name: "noname",
+const user_input_data = createContext<Inputs>({
+  Name: "",
   Place_born: "",
   Place_live: "", 
   Hobby: "",
   Sentence: "",
 });
 export {user_input_data};
+
+const documenID = "-1";
+
 
 
 export default function Input_Form() {
@@ -30,7 +35,7 @@ export default function Input_Form() {
  
       
     const handleOnClick = async () => {
-       
+        
         console.log('Name:', watch('Name'));  
         console.log('Place_born:', watch('Place_born'));    
         console.log('Place_live:', watch('Place_live'));  
@@ -43,25 +48,57 @@ export default function Input_Form() {
         user_input_data.Hobby = watch('Hobby');
         user_input_data.Sentence = watch('Sentence');
 
+       
+
         (async () => {
-          
-          /*
-          //create sample data
-          try {
-            const userRef = db.collection('sample_data').doc('sample')
-            await userRef.set({
-              Name: watch('Name'),
-                Place_born: watch('Place_born'),
-                Place_live: watch('Place_live'),
-                Hobby: watch('Hobby'),
-                Sentence: watch('Sentence'),
-                createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-                updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
-            })
-          } catch (err) {
-            console.log(`Error: ${JSON.stringify(err)}`)
+
+          if(documenID == "-1"){
+            const collection = db.collection('sample_data')
+            const id = collection.doc().id
+            documenID = id;
+            console.log(documenID); 
+
+            try {
+              const userRef = db.collection('sample_data').doc(documenID)
+              await userRef.set({
+                  Name: watch('Name'),
+                  Place_born: watch('Place_born'),
+                  Place_live: watch('Place_live'),
+                  Hobby: watch('Hobby'),
+                  Sentence: watch('Sentence'),
+                  createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                  updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
+              })
+            } catch (err) {
+              console.log(`Error: ${JSON.stringify(err)}`)
+            }
+
+
+          }else{
+            console.log(documenID);
+            try {
+              console.log('update_file');
+              const userRef = db.collection('sample_data').doc(documenID)
+              await userRef.update({
+                  Name: watch('Name'),
+                  Place_born: watch('Place_born'),
+                  Place_live: watch('Place_live'),
+                  Hobby: watch('Hobby'),
+                  Sentence: watch('Sentence'),
+                  createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                  updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
+              })
+  
+              const userDoc = await userRef.get()
+              console.log(userDoc.data())
+  
+            } catch (err) {
+              console.log(`Error: ${JSON.stringify(err)}`)
+            }
+            
           }
-          */
+           
+          
         
           
           /*
@@ -81,34 +118,14 @@ export default function Input_Form() {
 
           } catch (err) {
             console.log(`Error: ${JSON.stringify(err)}`);
-          }
-          */
+          }*/
+           
           
-          
-          /*
-          try { 
-            console.log('test2');
-            const userRef = db.collection('test_data').doc('uJk9YqdKtX69uNCWwvDi');
-            await useRef.update({
-              user_name_firebase: watch('username'),
-              birthplace_firebase: watch('birthplace'),
-              uhobby_firebase: watch('hobby'),
-              user_comments_firebase: watch('user_comments'),
-              createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-              updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
-            })
-
-            const userDoc = await userRef.get()
-            console.log(userDoc.data())
-
-          } catch (err) {
-            console.log(`Error: ${JSON.stringify(err)}`)
-          }
-          */
+           
           
 
           try {
-            const userRef = db.collection('sample_data').doc('sample') 
+            const userRef = db.collection('sample_data').doc(documenID) 
             const userDoc = await userRef.get()
             if (userDoc.exists) {
               console.log(userDoc.id)
@@ -135,35 +152,33 @@ export default function Input_Form() {
       <div className="w-auto h-screen bg-white">
       <div className="grid place-items-center mt-12 md:pt-0 md:px-24 lg:px-32">
         
-          <h1 className="text-3xl font-bold text-orange-500" id="h2_self_introduction_form">自己紹介登録フォーム</h1> 
-
           <label className="block text-gray-500 font-bold md:text-left mb-1 md:mb-0 pr-4">
               名前
           </label>
-          <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" defaultValue="名前" {...register('Name', { required: true })} />
+          <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" defaultValue={user_input_data.Name} {...register('Name', { required: true })} />
           <br></br>
 
 
           <label className="block text-gray-500 font-bold md:text-left mb-1 md:mb-0 pr-4">
               出身地
           </label>
-          <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" defaultValue="東京" {...register('Place_born', { required: true })} />
+          <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" defaultValue={user_input_data.Place_born} {...register('Place_born', { required: true })} />
 
           <label className="block text-gray-500 font-bold md:text-left mb-1 md:mb-0 pr-4">
               居住地
           </label>
-          <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" defaultValue="大阪" {...register('Place_live', { required: true })} />
+          <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" defaultValue={user_input_data.Place_live} {...register('Place_live', { required: true })} />
 
           <label className="block text-gray-500 font-bold md:text-left mb-1 md:mb-0 pr-4">
               趣味
           </label>
-          <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" defaultValue="趣味" {...register('Hobby', { required: true })} />
+          <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" defaultValue={user_input_data.Hobby} {...register('Hobby', { required: true })} />
           <br></br>
 
           <label className="block text-gray-500 font-bold md:text-left mb-1 md:mb-0 pr-4">
               最後に一言
           </label>
-          <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" defaultValue="よろしくお願いします！" {...register('Sentence', { required: true })} />
+          <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" defaultValue={user_input_data.Sentence} {...register('Sentence', { required: true })} />
 
           {errors.Name && (<span style={{ color: 'red' }}>空欄があります</span>)}
           {errors.Place_born && (<span style={{ color: 'red' }}>空欄があります</span>)}
@@ -191,7 +206,7 @@ export default function Input_Form() {
 
 
 
-          <h1 className="text-3xl font-bold text-orange-500">自己紹介</h1> 
+          <h1 className="text-3xl font-bold text-gray-500">自己紹介</h1> 
           <div className="p-4 max-w-md bg-white rounded-lg shadow-md border border-gray-500">
             <div className="flow-root">
                 <ul role="list" className="divide-y divide-gray-200">

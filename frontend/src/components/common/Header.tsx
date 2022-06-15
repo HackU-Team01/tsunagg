@@ -12,7 +12,25 @@ const Header = (): JSX.Element => {
         {/* ロゴ */}
         <Link href="/">
           <a>
-            <h1 className="text-3xl font-bold text-orange-500" id="h2_self_introduction_form">tunagg</h1> 
+            <h1 className="text-3xl font-bold text-orange-500">tunagg</h1> 
+          </a>
+        </Link>
+
+        <Link href="/">
+          <a>
+            <h1 className="text-sm text-gray-500">home</h1> 
+          </a>
+        </Link>
+
+        <Link href="/form">
+          <a>
+            <h1 className="text-sm text-gray-500">自己紹介入力</h1> 
+          </a>
+        </Link>
+
+        <Link href="/self_introduction_card">
+          <a>
+            <h1 className="text-sm text-gray-500">入力内容確認</h1> 
           </a>
         </Link>
 
