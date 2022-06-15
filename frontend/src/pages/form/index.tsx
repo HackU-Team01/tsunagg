@@ -1,8 +1,8 @@
 import { useForm, SubmitHandler } from 'react-hook-form'; 
-  
-import firebase from "firebase/app";
-import { db } from "../lib/firebase";
 import { useRef } from 'react';
+
+import { db } from "../../lib/firebase";
+import firebase from "firebase";
 
 
 
@@ -32,11 +32,35 @@ export default function Input_Form() {
 
       
       (async () => {
+
+        try {
+          const userRef = await db.collection('test_data').add({
+            user_name_firebase: watch('username'),
+            birthplace_firebase: watch('birthplace'),
+            uhobby_firebase: watch('hobby'),
+            user_comments_firebase: watch('user_comments'),
+            createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+            updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
+          });
+      
+          const userDoc = await userRef.get();
+          console.log(userDoc.data());
+
+        } catch (err) {
+          console.log(`Error: ${JSON.stringify(err)}`);
+        }
+        
+        
         try { 
           console.log('test2');
-          const userRef = db.collection('test_data').doc('uJk9YqdKtX69uNCWwvDi')
+          const userRef = db.collection('test_data').doc('uJk9YqdKtX69uNCWwvDi');
           await useRef.update({
-            user_name_firebase: "watch('username')",
+            user_name_firebase: watch('username'),
+            birthplace_firebase: watch('birthplace'),
+            uhobby_firebase: watch('hobby'),
+            user_comments_firebase: watch('user_comments'),
+            createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+            updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
           })
 
           const userDoc = await userRef.get()

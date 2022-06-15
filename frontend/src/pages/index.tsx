@@ -4,8 +4,7 @@ import Layout from '@/components/common/Layout';
 import Counter from '@/components/counter/Counter';
 import { getRandomNum } from '@/lib/counterUtil';
 
-import { render } from "react-dom";
-import Input_Form from "./input_form";
+import Input_Form from "./form";
 
  
 
@@ -19,7 +18,7 @@ const Home: NextPage = () => {
       <div className="grid place-items-center mt-12 md:pt-0 md:px-24 lg:px-32">
     
   
-        <Input_Form />
+      <Input_Form />
 
 
 
