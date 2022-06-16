@@ -2,7 +2,8 @@ import Selfintroduction_Card from './SelfintroductionCard';
 import Layout from '@/components/common/Layout'; 
 import Link from 'next/link'
  
-export default function Selfintroduction_Card_Home() {
+
+const Selfintroduction_Card_Home: NextPage = () => {
      
 
     return (
@@ -14,7 +15,7 @@ export default function Selfintroduction_Card_Home() {
         
                
 
-          <h1 className="text-3xl font-bold text-gray-500">自己紹介</h1> 
+          <h1 className="text-3xl text-gray-500">自己紹介 入力内容</h1> 
           <Selfintroduction_Card />
 
 
@@ -28,4 +29,4 @@ export default function Selfintroduction_Card_Home() {
         
     );
 }
-
+export default Selfintroduction_Card_Home;

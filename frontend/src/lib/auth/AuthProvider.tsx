@@ -15,6 +15,10 @@ type Props = {
   children: any;
 };
 
+
+
+
+
 const AuthProvider: FC<Props> = ({ children }) => {
   const router = useRouter();
   const [currentUser, setCurrentUser] = useState<

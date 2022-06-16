@@ -5,7 +5,7 @@ import Container from '@/components/common/parts/Container';
 
 const Footer = (): JSX.Element => {
   return (
-    <footer className="py-10 bg-gray-50">
+    <footer className="py-1 bg-gray-50">
       <Container>
         <div className="flex flex-col justify-between items-start md:flex-row">
           {/* ロゴ */}
