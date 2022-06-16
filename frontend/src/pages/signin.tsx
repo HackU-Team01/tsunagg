@@ -1,11 +1,14 @@
 import React, { useContext, useEffect } from "react";
 import type { NextPage } from "next";
-import { AuthContext } from "../lib/auth/AuthProvider";
+import { AuthContext, UserData } from "../lib/auth/AuthProvider";
 import { useRouter } from "next/router";
 import { Button } from "../components/common/parts/Button";
+import { db } from "../lib/firebase"; 
 import Image from "next/image";
 
 import firebase from "firebase";
+
+
 
 const Signin: NextPage = () => {
   const router = useRouter();

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Layout from '@/components/common/Layout';
 import Counter from '@/components/counter/Counter';
 import { getRandomNum } from '@/lib/counterUtil';
+import { UserData } from "../lib/auth/AuthProvider";
 
 import Selfintroduction_Card from './self_introduction_card/SelfintroductionCard';  
 
@@ -12,6 +13,7 @@ import Selfintroduction_Card from './self_introduction_card/SelfintroductionCard
 
 const Home: NextPage = () => {
  
+  console.log(UserData.documentID); 
 
   return (
     <Layout path="/" title="タイトル" noTitleTemplate={true} isTopPage={true}>

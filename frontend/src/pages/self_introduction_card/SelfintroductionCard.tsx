@@ -1,46 +1,28 @@
 import { db } from "../../lib/firebase"; 
 import { createContext } from "react";
 import firebase from "firebase";
+import { UserData } from "../../lib/auth/AuthProvider";
 
-
-type UserData = {
-  Name: string;
-  Place_born: string;
-  Place_live: string; 
-  Hobby: string;
-  Sentence: string;
-}; 
-
-const user_input_data = createContext<UserData>({
-  Name: "",
-  Place_born: "",
-  Place_live: "", 
-  Hobby: "",
-  Sentence: "",
-}); 
-
-//const documenID = "-1";
-const documenID = "sample"; 
+ 
 
 
 const Selfintroduction_Card = () => {
 
- 
+  
   (async () => {
-    if(documenID != "-1"){
-        const userRef = db.collection('sample_data').doc("sample") 
+    const userRef = db.collection('sample_data').doc(UserData.documentID) 
         const userDoc = await userRef.get()
         if (userDoc.exists) {
           //console.log('doc.id:',userDoc.id)
           console.log(userDoc.data()) 
-
-          user_input_data.Name = userDoc.get('Name');
-          user_input_data.Place_born = userDoc.get('Place_born');
-          user_input_data.Place_live = userDoc.get('Place_live');
-          user_input_data.Hobby = userDoc.get('Hobby');
-          user_input_data.Sentence = userDoc.get('Sentence');
+          if(UserData.Name != undefined){
+            UserData.Name = userDoc.get('Name');
+            UserData.Place_born = userDoc.get('Place_born');
+            UserData.Place_live = userDoc.get('Place_live');
+            UserData.Hobby = userDoc.get('Hobby');
+            UserData.Sentence = userDoc.get('Sentence');
+          }
         }
-      }
   })()
  
     
@@ -57,17 +39,17 @@ const Selfintroduction_Card = () => {
                 </div>
 
 
-                <h5 className="text-2xl leading-none text-gray-900">{user_input_data.Name}</h5>
+                <h5 className="text-2xl leading-none text-gray-900">{UserData.Name}</h5>
             </div>
             <div className="flex items-center space-x-4">
                 <div className="relative w-10 h-10 overflow-hidden bg-white rounded-full"><svg className="absolute w-12 h-12 text-gray-400 -left-1" fill="currentColor" viewBox="0 0 20 20"></svg></div>
                 
                 <div className="flex-1 min-w-0">
-                    <p className="text-black-500">名前：{user_input_data.Name}</p>
-                    <p className="text-black-500"> 出身地：{user_input_data.Place_born} </p>
-                    <p className="text-black-500"> 居住地{user_input_data.Place_live} </p>
-                    <p className="text-black-500"> 趣味：{user_input_data.Hobby} </p>
-                    <p className="text-black-500"> 最後に一言：{user_input_data.Sentence}</p>
+                    <p className="text-black-500">名前：{UserData.Name}</p>
+                    <p className="text-black-500"> 出身地：{UserData.Place_born} </p>
+                    <p className="text-black-500"> 居住地{UserData.Place_live} </p>
+                    <p className="text-black-500"> 趣味：{UserData.Hobby} </p>
+                    <p className="text-black-500"> 最後に一言：{UserData.Sentence}</p>
                 </div>
             </div>
             </li>
