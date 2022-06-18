@@ -1,15 +1,18 @@
 package main
 
 import (
-	"fmt"
-	"net/http"
+	_ "github.com/joho/godotenv/autoload"
+
+	"tsunagg/backend/model/db"
+	"tsunagg/backend/router"
 )
 
-func greet(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "Hello World!")
-}
-
 func main() {
-	http.HandleFunc("/", greet)
-	http.ListenAndServe(":8080", nil)
+	// Firestore読み込み
+	c := db.NewFirestoreClient()
+	defer c.Close()
+
+	// サーバ立ち上げ
+	r := router.NewRouter(c)
+	r.Serve()
 }
