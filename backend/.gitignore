@@ -28,3 +28,6 @@ go.work
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+.env
+/firebase_credential.json
