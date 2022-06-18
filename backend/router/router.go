@@ -27,8 +27,8 @@ func (r *Router) Serve() {
 	// クライアント側のポートからサーバ側のポートにアクセスできるようにCORSを設定する
 	handler := cors.Default().Handler(r)
 
-	addr, ok := os.LookupEnv("ADDRESS")
-	if !ok {
+	addr := os.Getenv("ADDRESS")
+	if addr == "" {
 		addr = defaultAddr
 	}
 
