@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 
 import Layout from '@/components/common/Layout';
+import Graph from './graph/Graph';
 
 const Home: NextPage = () => {
   return (
@@ -30,6 +31,8 @@ const Home: NextPage = () => {
               </Link>
             </li>
           </ul>
+
+          <Graph />
         </div>
       </div>
     </Layout>
