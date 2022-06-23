@@ -1,4 +1,3 @@
-
 import { Button } from '../../components/common/parts/Button';
 import { db } from '../../lib/firebase';
 import Form_hobby from './Form_hobby';
@@ -34,7 +33,7 @@ export default function Input_Form() {
           const hobby_checkbox = document.getElementsByName('hobby');
           const hobby_data = userDoc.get('Attribute').Hobby;
           for (let i = 0; i < hobby_checkbox.length; i++) {
-            hobby_checkbox[i] = false;
+            hobby_checkbox[i].checked = false;
             for (let j = 0; j < hobby_data.length; j++) {
               if (hobby_checkbox[i].value == hobby_data[j]) {
                 hobby_checkbox[i].checked = true;
