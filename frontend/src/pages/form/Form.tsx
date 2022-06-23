@@ -1,4 +1,3 @@
-import { Button } from '../../components/common/parts/Button';
 import { db } from '../../lib/firebase';
 import Form_hobby from './Form_hobby';
 import Form_place_option, { map_place } from './Form_place';
@@ -38,7 +37,7 @@ export default function Input_Form() {
               if (hobby_checkbox[i].value == hobby_data[j]) {
                 hobby_checkbox[i].checked = true;
                 hobby_checkbox[i].className =
-                  'inline-block px-6 py-2 border-2 bg-red-400 text-white text-sm leading-tight uppercase rounded-full';
+                  'inline-block px-6 py-2 border-2 bg-red-400 text-white text-sm leading-tight uppercase rounded-full border-red-300';
               }
             }
           }
@@ -60,7 +59,7 @@ export default function Input_Form() {
       if (hobby_checkbox[i].checked == true) {
         hobby_checkbox[i].checked = false;
         hobby_checkbox[i].className =
-          'inline-block px-6 py-2 border-2 border-red-300 text-red-300 text-sm leading-tight uppercase rounded-full';
+          'inline-block px-6 py-2 border-2 border-red-300 text-red-300 text-sm leading-tight uppercase rounded-full border-red-300';
       }
     }
     if (all_clear) {
@@ -126,7 +125,7 @@ export default function Input_Form() {
       <div className="float-right space-x-2">
         <button
           type="button"
-          className="inline-block py-2.5 px-6 text-xs font-medium leading-tight text-gray-900 bg-gray-100 thover:bg-gray-300 focus:bg-gray-300 active:bg-gray-400 rounded-full border-2 focus:outline-none focus:ring-0 shadow-md hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out border-gray-10"
+          className="inline-block py-2.5 px-6 text-xs font-medium leading-tight text-gray-900 bg-gray-100 thover:bg-gray-300 focus:bg-gray-300 active:bg-gray-400 rounded-full border-2 focus:outline-none focus:ring-0 shadow-md hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out hover:scale-110 border-gray-10"
           onClick={() => {
             handleOnClick_testtest();
           }}
@@ -135,7 +134,7 @@ export default function Input_Form() {
         </button>
         <button
           type="button"
-          className="inline-block py-2.5 px-6 text-xs font-medium leading-tight text-gray-900 bg-gray-100 thover:bg-gray-300 focus:bg-gray-300 active:bg-gray-400 rounded-full border-2 focus:outline-none focus:ring-0 shadow-md hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out border-gray-10"
+          className="inline-block py-2.5 px-6 text-xs font-medium leading-tight text-gray-900 bg-gray-100 thover:bg-gray-300 focus:bg-gray-300 active:bg-gray-400 rounded-full border-2 focus:outline-none focus:ring-0 shadow-md hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out hover:scale-110 border-gray-10"
           onClick={() => {
             handleOnClick_clear(true);
           }}
@@ -198,7 +197,7 @@ export default function Input_Form() {
         <div className="md:w-4/12">
           <button
             type="button"
-            className="inline-block py-2.5 px-6 text-xs font-medium leading-tight text-gray-900 bg-gray-100 thover:bg-gray-300 focus:bg-gray-300 active:bg-gray-400 rounded-full border-2 focus:outline-none focus:ring-0 shadow-md hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out border-gray-10"
+            className="inline-block py-2.5 px-6 text-xs font-medium leading-tight text-gray-900 bg-gray-100 thover:bg-gray-300 focus:bg-gray-300 active:bg-gray-400 rounded-full border-2 shadow-md hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out hover:scale-110 border-gray-10"
             onClick={() => {
               handleOnClick_clear(false);
             }}
@@ -221,17 +220,15 @@ export default function Input_Form() {
         defaultValue=""
       />
 
-      <Button
-        variant="solid-red"
-        className="py-4 mt-7 w-32 sm:w-40"
+      <button
+        type="button"
+        className="inline-block py-4 px-11 my-10 text-xl leading-tight text-white bg-red-400 hover:bg-red-300 focus:bg-red-500 active:bg-red-500 rounded-full border-2 border-red-300 focus:outline-none focus:ring-0 transition duration-150 hover:scale-110 border-red-10"
         onClick={() => {
           handleOnClick();
         }}
       >
-        <div className="flex">
-          <span>送信</span>
-        </div>
-      </Button>
+        送信
+      </button>
     </form>
   );
 }

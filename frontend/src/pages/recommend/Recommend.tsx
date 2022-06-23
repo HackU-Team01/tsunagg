@@ -62,8 +62,10 @@ export default function Recommend() {
           if (f == 1 && postDoc.get('channel_frag') == 1) {
             Recommend_channel.push(postDoc.get('channel_name'));
             Recommend_channel_len.push(postDoc.get('len_Applicable_users_id'));
+
+            if (res_recommend != '') res_recommend += ',';
             res_recommend +=
-              postDoc.get('channel_name') + '(' + postDoc.get('len_Applicable_users_id') + '人),';
+              postDoc.get('channel_name') + '(' + postDoc.get('len_Applicable_users_id') + '人)';
           }
           /*
           if(f == 1 && postDoc.get('channel_frag') == 1){
@@ -91,50 +93,55 @@ export default function Recommend() {
   };
 
   return (
-    <div className="w-screen h-screen bg-white">
-      <div className="w-4/5 h-3/5 bg-white">
-        <button
-          type="button"
-          className="inline-block float-right py-2.5 px-6 leading-tight text-red-400 bg-red-100 hover:bg-red-200 focus:bg-red-200 active:bg-red-400 rounded-full border-2 border-red-300 focus:outline-none focus:ring-0 transition duration-150 text-1xl border-red-10"
-          onClick={() => {
-            handleOnClick_check_firebase();
-          }}
-        >
-          Firebase読み取り
-        </button>
+    <div className="bg-white">
+      <button
+        type="button"
+        className="inline-block float-right py-2.5 px-6 m-3 text-xs font-medium leading-tight text-gray-900 bg-gray-100 thover:bg-gray-300 focus:bg-gray-300 active:bg-gray-400 rounded-full border-2 focus:outline-none focus:ring-0 shadow-md hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out hover:scale-110 border-gray-10"
+        onClick={() => {
+          handleOnClick_check_firebase();
+        }}
+      >
+        Firebase読み取り
+      </button>
+      <br />
+      <br />
 
-        <br />
-
-        <div className="m-5 rounded-xl">
-          <p className="m-4 text-2xl text-gray-500">uuid:{uuId} 入力データ</p>
+      <div className="m-3 rounded-xl border-2 border-gray-300 shadow-md">
+        <div className="m-3">
+          <p className="m-4 text-2xl text-red-500">入力データ</p>
+          <p className="m-4 text-xl text-gray-500">uuid: {uuId}</p>
           <p>
-            <span className="m-4 text-xl text-gray-700">名前</span>
+            <span className="m-4 text-xl text-gray-700">名前:</span>
             <span className="m-4 text-xl text-gray-500">{uuId}</span>
           </p>
           <p>
-            <span className="m-4 text-xl text-gray-700">出身地</span>
+            <span className="m-4 text-xl text-gray-700">出身地:</span>
             <span className="m-4 text-xl text-gray-500" id="user_data_place_born"></span>
           </p>
           <p>
-            <span className="m-4 text-xl text-gray-700">居住地</span>
+            <span className="m-4 text-xl text-gray-700">居住地:</span>
             <span className="m-4 text-xl text-gray-500" id="user_data_place_live"></span>
           </p>
           <p>
-            <span className="m-4 text-xl text-gray-700">趣味</span>
+            <span className="m-4 text-xl text-gray-700">趣味:</span>
             <span className="m-4 text-xl text-gray-500" id="user_data_hobby"></span>
           </p>
           <p>
-            <span className="m-4 text-xl text-gray-700">最後に一言</span>
+            <span className="m-4 text-xl text-gray-700">最後に一言:</span>
             <span className="m-4 text-xl text-gray-500" id="user_data_sectence"></span>
           </p>
         </div>
+      </div>
 
-        <div className="m-5 rounded-xl border-2 border-red-300">
+      <div className="m-3 rounded-xl border-2 border-gray-300 shadow-md">
+        <div className="m-3">
           <p className="m-4 text-2xl text-red-500">おすすめチャンネル</p>
           <p className="m-4 text-xl text-gray-500" id="recommend_channel_id"></p>
         </div>
+      </div>
 
-        <div className="m-5 rounded-xl border-2 border-red-300">
+      <div className="m-3 rounded-xl border-2 border-gray-300 shadow-md">
+        <div className="m-3">
           <p className="m-4 text-2xl text-red-500">おすすめユーザー</p>
           <p className="m-4 text-xl text-gray-500" id="recommend_user_id"></p>
         </div>

@@ -3,11 +3,11 @@ export default function Hobby() {
     const button_col = document.getElementById(id_name);
     if (button_col.checked == true) {
       button_col.className =
-        'inline-block px-6 py-2 border-2 border-red-300 text-red-300 text-sm leading-tight uppercase rounded-full';
+        'inline-block px-6 py-2 border-2 border-red-300 text-red-300 text-sm leading-tight uppercase rounded-full border-red-300  transition duration-150 ease-in-out hover:scale-110 ';
       button_col.checked = false;
     } else {
       button_col.className =
-        'inline-block px-6 py-2 border-2 bg-red-400 text-white text-sm leading-tight uppercase rounded-full';
+        'inline-block px-6 py-2 border-2 bg-red-400 text-white text-sm leading-tight uppercase rounded-full border-red-300  transition duration-150 ease-in-out hover:scale-110 ';
       button_col.checked = true;
     }
     //console.log(button_col.checked);
@@ -20,7 +20,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby0"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase checked:bg-red-400 rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase checked:bg-red-400 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby0');
         }}
@@ -32,7 +32,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby1"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby1');
         }}
@@ -44,7 +44,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby2"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby2');
         }}
@@ -56,7 +56,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby3"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby3');
         }}
@@ -68,7 +68,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby4"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby4');
         }}
@@ -80,7 +80,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby5"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby5');
         }}
@@ -92,7 +92,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby6"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby6');
         }}
@@ -104,7 +104,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby7"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby7');
         }}
@@ -116,7 +116,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby8"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby8');
         }}
@@ -128,7 +128,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby9"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby9');
         }}
@@ -140,7 +140,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby10"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby10');
         }}
@@ -152,7 +152,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby11"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby11');
         }}
@@ -164,7 +164,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby12"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby12');
         }}
@@ -176,7 +176,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby13"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby13');
         }}
@@ -188,7 +188,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby14"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby14');
         }}
@@ -200,7 +200,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby15"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby15');
         }}
@@ -212,7 +212,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby16"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby16');
         }}
@@ -224,7 +224,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby17"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby17');
         }}
@@ -236,7 +236,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby18"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby18');
         }}
@@ -248,7 +248,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby19"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby19');
         }}
@@ -260,7 +260,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby20"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby20');
         }}
@@ -272,7 +272,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby21"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby21');
         }}
@@ -284,7 +284,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby22"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby22');
         }}
@@ -296,7 +296,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby23"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby23');
         }}
@@ -308,7 +308,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby24"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby24');
         }}
@@ -320,7 +320,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby25"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby25');
         }}
@@ -332,7 +332,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby26"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby26');
         }}
@@ -344,7 +344,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby27"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby27');
         }}
@@ -356,7 +356,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby28"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby28');
         }}
@@ -368,7 +368,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby29"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby29');
         }}
@@ -380,7 +380,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby30"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby30');
         }}
@@ -392,7 +392,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby31"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby31');
         }}
@@ -404,7 +404,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby32"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby32');
         }}
@@ -416,7 +416,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby33"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby33');
         }}
@@ -428,7 +428,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby34"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby34');
         }}
@@ -440,7 +440,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby35"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby35');
         }}
@@ -452,7 +452,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby36"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby36');
         }}
@@ -464,7 +464,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby37"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby37');
         }}
@@ -476,7 +476,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby38"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby38');
         }}
@@ -488,7 +488,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby39"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby39');
         }}
@@ -500,7 +500,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby40"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby40');
         }}
@@ -512,7 +512,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby41"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby41');
         }}
@@ -524,7 +524,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby42"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby42');
         }}
@@ -536,7 +536,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby43"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby43');
         }}
@@ -548,7 +548,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby44"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby44');
         }}
@@ -560,7 +560,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby45"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby45');
         }}
@@ -572,7 +572,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby46"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby46');
         }}
@@ -584,7 +584,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby47"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby47');
         }}
@@ -596,7 +596,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby48"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby48');
         }}
@@ -608,7 +608,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby49"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby49');
         }}
@@ -620,7 +620,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby50"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby50');
         }}
@@ -632,7 +632,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby51"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby51');
         }}
@@ -644,7 +644,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby52"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby52');
         }}
@@ -656,7 +656,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby53"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby53');
         }}
@@ -668,7 +668,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby54"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby54');
         }}
@@ -680,7 +680,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby55"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby55');
         }}
@@ -692,7 +692,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby56"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby56');
         }}
@@ -704,7 +704,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby57"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby57');
         }}
@@ -716,7 +716,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby58"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby58');
         }}
@@ -728,7 +728,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby59"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby59');
         }}
@@ -740,7 +740,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby60"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby60');
         }}
@@ -752,7 +752,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby61"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby61');
         }}
@@ -764,7 +764,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby62"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby62');
         }}
@@ -776,7 +776,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby63"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby63');
         }}
@@ -788,7 +788,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby64"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby64');
         }}
@@ -800,7 +800,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby65"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby65');
         }}
@@ -812,7 +812,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby66"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby66');
         }}
@@ -824,7 +824,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby67"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby67');
         }}
@@ -836,7 +836,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby68"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby68');
         }}
@@ -848,7 +848,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby69"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby69');
         }}
@@ -860,7 +860,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby70"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby70');
         }}
@@ -872,7 +872,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby71"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby71');
         }}
@@ -884,7 +884,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby72"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby72');
         }}
@@ -896,7 +896,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby73"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby73');
         }}
@@ -908,7 +908,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby74"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby74');
         }}
@@ -920,7 +920,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby75"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby75');
         }}
@@ -932,7 +932,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby76"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby76');
         }}
@@ -944,7 +944,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby77"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby77');
         }}
@@ -956,7 +956,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby78"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby78');
         }}
@@ -968,7 +968,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby79"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby79');
         }}
@@ -980,7 +980,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby80"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby80');
         }}
@@ -992,7 +992,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby81"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby81');
         }}
@@ -1004,7 +1004,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby82"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby82');
         }}
@@ -1016,7 +1016,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby83"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby83');
         }}
@@ -1028,7 +1028,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby84"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby84');
         }}
@@ -1040,7 +1040,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby85"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby85');
         }}
@@ -1052,7 +1052,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby86"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby86');
         }}
@@ -1064,7 +1064,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby87"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby87');
         }}
@@ -1076,7 +1076,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby88"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby88');
         }}
@@ -1088,7 +1088,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby89"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby89');
         }}
@@ -1100,7 +1100,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby90"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby90');
         }}
@@ -1112,7 +1112,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby91"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby91');
         }}
@@ -1124,7 +1124,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby92"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby92');
         }}
@@ -1136,7 +1136,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby93"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby93');
         }}
@@ -1148,7 +1148,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby94"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby94');
         }}
@@ -1160,7 +1160,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby95"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby95');
         }}
@@ -1172,7 +1172,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby96"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby96');
         }}
@@ -1184,7 +1184,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby97"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby97');
         }}
@@ -1196,7 +1196,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby98"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
         onClick={() => {
           handleOnClick('hobby98');
         }}
