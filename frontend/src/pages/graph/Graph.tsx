@@ -14,7 +14,7 @@ function init_graph() {
       id: 1,
       value: 150,
       shape: 'circularImage',
-      image: DIR + 'logo1.png',
+      image: DIR + 'usericon1.png',
       label: 'User1',
       title: 'name\n hobby\n place',
     },
@@ -181,7 +181,7 @@ export default function DrawNetwork() {
         グラフ描画
       </button>
 
-      <div className="w-3/4 h-3/4 bg-red-50 .place-content-center" id="mynetwork"></div>
+      <div className="w-3/4 h-3/5 bg-red-50 .place-content-center" id="mynetwork"></div>
     </div>
   );
 }
