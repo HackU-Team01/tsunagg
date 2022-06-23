@@ -1,20 +1,10 @@
-import { useForm } from 'react-hook-form';
 
 import { Button } from '../../components/common/parts/Button';
 import { db } from '../../lib/firebase';
 import Form_hobby from './Form_hobby';
 import Form_place_option, { map_place } from './Form_place';
 
-
-type InputData = {
-  Name: string;
-  Hobby: string;
-  Sentence: string;
-};
-
 export default function Input_Form() {
-  const { register, watch } = useForm<InputData>();
-
   //***********************************************************
   //Firebaseにデータがある場合の読み取りのテスト
   const handleOnClick_testtest = async () => {
@@ -90,6 +80,9 @@ export default function Input_Form() {
   const handleOnClick = async () => {
     const Place_born = document.getElementById('select_Place_born');
     const Place_live = document.getElementById('select_Place_live');
+    const Name = document.getElementById('Name_input_form');
+    //const HobbyOther = document.getElementById('HobbyOther_input_form');
+    const Sentence = document.getElementById('Sentence_input_form');
 
     const hobby_checkbox = document.getElementsByName('hobby');
     let checked_hobby_list = [];
@@ -103,19 +96,20 @@ export default function Input_Form() {
 
     let args = {
       data: {
-        Name: watch('Name'),
+        Name: Name.value,
         Attribute: {
           Hobby: checked_hobby_list,
           Place_born: [map_place.get(Place_born.value), Place_born.value],
           Place_live: [map_place.get(Place_live.value), Place_live.value],
         },
-        Sentence: watch('Sentence'),
+        Sentence: Sentence.value,
       },
     };
     //console.log(args);
     //https://httpbin.org/post
     axios
-      .post('https://httpbin.org/post', args)
+      //.post('https://httpbin.org/post', args)
+      .post('http://localhost:8000/api/editProfile', args)
       .then(function (response: any) {
         console.log(response.data);
       })
@@ -130,24 +124,27 @@ export default function Input_Form() {
 
   return (
     <form className="w-full">
-      <button
-        type="button"
-        className="inline-block py-2.5 px-6 text-xs font-medium leading-tight text-gray-900 bg-gray-100 thover:bg-gray-300 focus:bg-gray-300 active:bg-gray-400 rounded-full border-2 focus:outline-none focus:ring-0 transition duration-150 ease-in-out border-gray-10"
-        onClick={() => {
-          handleOnClick_testtest();
-        }}
-      >
-        Firebase読み取り
-      </button>
-      <button
-        type="button"
-        className="inline-block py-2.5 px-6 text-xs font-medium leading-tight text-gray-900 bg-gray-100 thover:bg-gray-300 focus:bg-gray-300 active:bg-gray-400 rounded-full border-2 focus:outline-none focus:ring-0 shadow-md hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out border-gray-10"
-        onClick={() => {
-          handleOnClick_clear(true);
-        }}
-      >
-        クリア
-      </button>
+      <div className="float-right space-x-2">
+        <button
+          type="button"
+          className="inline-block py-2.5 px-6 text-xs font-medium leading-tight text-gray-900 bg-gray-100 thover:bg-gray-300 focus:bg-gray-300 active:bg-gray-400 rounded-full border-2 focus:outline-none focus:ring-0 shadow-md hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out border-gray-10"
+          onClick={() => {
+            handleOnClick_testtest();
+          }}
+        >
+          Firebase読み取り
+        </button>
+        <button
+          type="button"
+          className="inline-block py-2.5 px-6 text-xs font-medium leading-tight text-gray-900 bg-gray-100 thover:bg-gray-300 focus:bg-gray-300 active:bg-gray-400 rounded-full border-2 focus:outline-none focus:ring-0 shadow-md hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out border-gray-10"
+          onClick={() => {
+            handleOnClick_clear(true);
+          }}
+        >
+          クリア
+        </button>
+      </div>
+
       <br />
       <br />
 
@@ -157,7 +154,6 @@ export default function Input_Form() {
         type="text"
         id="Name_input_form"
         defaultValue=""
-        {...register('Name', { required: true })}
       />
       <br />
 
@@ -195,8 +191,8 @@ export default function Input_Form() {
           <input
             className="block py-2 px-4 w-full leading-tight text-gray-700 bg-white focus:bg-white rounded border border-gray-300 focus:border-red-500 focus:outline-none appearance-none"
             type="text"
+            id="HobbyOther_input_form"
             defaultValue=""
-            {...register('Hobby', { required: true })}
           />
         </div>
         <div className="md:w-2/12"></div>
@@ -224,7 +220,6 @@ export default function Input_Form() {
         type="text"
         id="Sentence_input_form"
         defaultValue=""
-        {...register('Sentence', { required: true })}
       />
 
       <Button
