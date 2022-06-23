@@ -170,10 +170,10 @@ export default function DrawNetwork() {
   };
 
   return (
-    <div className="w-screen h-screen">
+    <div className="w-full">
       <button
         type="button"
-        className="absolute z-[100] inline-block py-2.5 px-6 text-xs font-medium leading-tight text-gray-100 bg-gray-500 thover:bg-gray-300 focus:bg-gray-300 active:bg-gray-400 rounded-full border-2 focus:outline-none focus:ring-0 transition duration-150 ease-in-out border-gray-10"
+        className="absolute z-[10] inline-block py-2.5 px-6 text-xs font-medium leading-tight text-gray-900 bg-gray-100 thover:bg-gray-300 focus:bg-gray-300 active:bg-gray-400 rounded-full border-2 focus:outline-none focus:ring-0 shadow-md hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out border-gray-10 hover:scale-110 m-5"
         onClick={() => {
           handleOnClick_testtest();
         }}
@@ -181,7 +181,7 @@ export default function DrawNetwork() {
         グラフ描画
       </button>
 
-      <div className="w-3/4 h-3/5 bg-red-50 .place-content-center" id="mynetwork"></div>
+      <div className="w-full h-screen bg-white .place-content-center" id="mynetwork"></div>
     </div>
   );
 }
