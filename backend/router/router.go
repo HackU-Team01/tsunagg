@@ -20,6 +20,7 @@ func NewRouter(c *firestore.Client) *Router {
 	mux := new(Router)
 	mux.HandleFunc("/api/editProfile", handler.EditProfileHandler(c))
 	mux.HandleFunc("/api/getMatching", handler.GetMatchingHandler(c))
+	mux.HandleFunc("/api/writeFirebase", handler.WriteFirebaseHandler(c))
 	return mux
 }
 
