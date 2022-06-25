@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"strings"
 	"tsunagg/backend/model/db"
-	"tsunagg/backend/model/matching"
+	"tsunagg/backend/model/profile"
 
 	"cloud.google.com/go/firestore"
 )
@@ -50,8 +50,9 @@ func WriteFirebaseHandler(c *firestore.Client) http.HandlerFunc {
 		// まだ該当AttributeドキュメントがAttribute_infoコレクション中になかったら作る
 		var no_doc_Attribute []string
 		var user_attribute []string
-		no_doc_Attribute, user_attribute = db.Read_firebase_for_attribute_make(c, uuid)
-		//fmt.Println(no_doc_Attribute)
+		var errors error
+		no_doc_Attribute, user_attribute, errors = db.Read_firebase_for_attribute_make(c, uuid)
+		fmt.Printf("error:%v\n", errors)
 		db.Make_firebase_Attribute(c, no_doc_Attribute, uuid, 1)
 
 		// 各Attributeについて以下のように調べていく
@@ -61,7 +62,8 @@ func WriteFirebaseHandler(c *firestore.Client) http.HandlerFunc {
 		// 含まれなかったら
 		// 該当者IDリストの中にユーザのIDが含まれるか調査し、なかったら削除
 		var attribute_doc_name []string
-		attribute_doc_name = db.Read_firebase_for_attribute(c, uuid, 1)
+		attribute_doc_name, errors = db.Read_firebase_for_attribute(c, uuid, 1)
+		fmt.Printf("error:%v\n", errors)
 		// fmt.Println("Attribute_docname")
 		// fmt.Println(attribute_doc_name)
 		// fmt.Println("user_attribute")
@@ -79,7 +81,7 @@ func WriteFirebaseHandler(c *firestore.Client) http.HandlerFunc {
 		}
 
 		////////////////////////match_userの更新//////////////////////////////
-		matching.Matching(c, uuid, user_attribute)
+		profile.Matching(c, uuid, user_attribute)
 
 	}
 }

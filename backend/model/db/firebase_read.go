@@ -3,7 +3,6 @@ package db
 import (
 	"context"
 	"fmt"
-	"log"
 
 	"cloud.google.com/go/firestore"
 	"google.golang.org/api/iterator"
@@ -71,7 +70,7 @@ func CulcDifference(l1, l2 []string) []string {
 }
 
 //AttributeコレクションにまだないAttributeを返す
-func Read_firebase_for_attribute_make(client *firestore.Client, uuid string) ([]string, []string) {
+func Read_firebase_for_attribute_make(client *firestore.Client, uuid string) ([]string, []string, error) {
 	// 初期化
 	ctx := context.Background()
 	// データ読み取り(Attribute_user)
@@ -85,7 +84,8 @@ func Read_firebase_for_attribute_make(client *firestore.Client, uuid string) ([]
 			break
 		}
 		if err != nil {
-			log.Fatalf("Failed to iterate: %v", err)
+			// log.Fatalf("Failed to iterate: %v", err)
+			return nil, nil, err
 		}
 		fmt.Println(doc.Ref.ID)
 		fmt.Println(doc.Data())
@@ -97,7 +97,8 @@ func Read_firebase_for_attribute_make(client *firestore.Client, uuid string) ([]
 	// var user_attribute []string
 	dsnap, err := client.Collection("user_info_sample").Doc(uuid).Get(ctx)
 	if err != nil {
-		log.Fatalf("Failed to dsnap: %v", err)
+		//log.Fatalf("Failed to dsnap: %v", err)
+		return nil, nil, err
 	}
 	m := dsnap.Data()
 	// fmt.Printf("Document data: %#v\n", m)
@@ -121,13 +122,13 @@ func Read_firebase_for_attribute_make(client *firestore.Client, uuid string) ([]
 	no_doc_Attribute := CulcDifference(Attribute_slice_unique, doc_name)
 	// fmt.Println(no_doc_Attribute)
 
-	return no_doc_Attribute, Attribute_slice
+	return no_doc_Attribute, Attribute_slice, nil
 
 }
 
 //pattern=1 Attributeコレクションの全ドキュメント名を返す
 
-func Read_firebase_for_attribute(client *firestore.Client, uuid string, pattern int) []string {
+func Read_firebase_for_attribute(client *firestore.Client, uuid string, pattern int) ([]string, error) {
 	if pattern == 1 {
 		/* 全てのドキュメント名を配列に代入 */
 		var doc_name []string
@@ -140,7 +141,8 @@ func Read_firebase_for_attribute(client *firestore.Client, uuid string, pattern 
 				break
 			}
 			if err != nil {
-				log.Fatalf("Failed to iterate: %v", err)
+				//log.Fatalf("Failed to iterate: %v", err)
+				return nil, err
 			}
 			// fmt.Println(doc.Ref.ID)
 			// fmt.Println(doc.Data())
@@ -148,32 +150,25 @@ func Read_firebase_for_attribute(client *firestore.Client, uuid string, pattern 
 		}
 		fmt.Println(doc_name)
 
-		return doc_name
+		return doc_name, nil
 	} else {
-		var err []string
-		return err
+
+		return nil, nil
 	}
 	// var err []string
 	// return err
 }
 
 //Attribute_user中のApplicable_users_idのリストを取得する
-func Read_firebase_for_match(client *firestore.Client, user_attribute_i string) interface{} {
+func Read_firebase_for_match(client *firestore.Client, user_attribute_i string) (interface{}, error) {
 	// var Applicable_users_id interface{}
 	ctx := context.Background()
 	dsnap, err := client.Collection("Attribute_user_sample").Doc(user_attribute_i).Get(ctx)
 	if err != nil {
-		log.Fatalf("Failed to dsnap: %v", err)
+		//log.Fatalf("Failed to dsnap: %v", err)
+		return nil, err
+
 	}
-	// m := dsnap.Data()
-	// fmt.Printf("Document data: %#v\n", m)
-	// for key, value := range m {
-	// 	// fmt.Printf("key: %v, value: %v\n", key, value)
-	// 	// fmt.Printf("key: %T, value: %T\n", key, value)
-	// 	// if key == " Applicable_users_id" {
-	// 	// 	Applicable_users_id = value
-	// 	// }
-	// }
 
 	ent := Read_Data_Attribute{}
 	if err = dsnap.DataTo(&ent); err != nil {
@@ -186,15 +181,16 @@ func Read_firebase_for_match(client *firestore.Client, user_attribute_i string) 
 	// fmt.Println(Applicable_users_id)
 	// fmt.Printf("Applicable_users_id: %T\n", Applicable_users_id)
 
-	return Applicable_users_id
+	return Applicable_users_id, nil
 }
 
-func Read_firebase_for_match_attribute(client *firestore.Client, uuid string) []string {
+func Read_firebase_for_match_attribute(client *firestore.Client, uuid string) ([]string, error) {
 	// var user_attribute []string
 	ctx := context.Background()
 	dsnap, err := client.Collection("user_info_sample").Doc(uuid).Get(ctx)
 	if err != nil {
-		log.Fatalf("Failed to dsnap: %v", err)
+		//log.Fatalf("Failed to dsnap: %v", err)
+		return nil, err
 	}
 	//m := dsnap.Data()
 	// fmt.Printf("Document data: %#v\n", m)
@@ -213,6 +209,6 @@ func Read_firebase_for_match_attribute(client *firestore.Client, uuid string) []
 	// fmt.Println(Attribute_slice)
 	Attribute_slice_unique := SliceUnique(Attribute_slice)
 
-	return Attribute_slice_unique
+	return Attribute_slice_unique, nil
 
 }

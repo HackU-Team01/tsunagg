@@ -1,4 +1,4 @@
-package matching
+package profile
 
 import (
 	"fmt"
@@ -44,7 +44,8 @@ func Matching(client *firestore.Client, uuid string, user_attribute []string) {
 	// 	"match_user_info": {Applicable_users_id[j]: [共通するAttribute],Applicable_users_id[j+1]: [共通するAttribute]...}
 	for _, v := range user_attribute {
 		user_attribute_i := v
-		Applicable_users_id := db.Read_firebase_for_match(client, user_attribute_i)
+		Applicable_users_id, errors := db.Read_firebase_for_match(client, user_attribute_i)
+		fmt.Printf("error:%v\n", errors)
 		//①②③
 		// fmt.Printf("user_attribute_i: %v\n", user_attribute_i)
 		// fmt.Printf("Applicable_users_id: %v\n", Applicable_users_id)
@@ -54,7 +55,8 @@ func Matching(client *firestore.Client, uuid string, user_attribute []string) {
 			//④match_useridの全Attributeを取得し、user_attributeとの積集合を取る
 			if uuid != match_userid {
 				fmt.Printf("user_attribute:%v\n", user_attribute)
-				match_userid_All_Attribute := db.Read_firebase_for_match_attribute(client, match_userid)
+				match_userid_All_Attribute, errors := db.Read_firebase_for_match_attribute(client, match_userid)
+				fmt.Printf("error:%v\n", errors)
 				fmt.Printf("match_users_all_attribute:%v\n", match_userid_All_Attribute)
 				match_userid_match_Attribute := MakeIntersection(user_attribute, match_userid_All_Attribute)
 				match_userid_match_Attribute_unique := db.SliceUnique(match_userid_match_Attribute)
