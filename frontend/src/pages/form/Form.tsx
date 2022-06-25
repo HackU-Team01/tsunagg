@@ -5,7 +5,7 @@ import Form_place_option, { map_place } from './Form_place';
 //POST request URL
 //'https://httpbin.org/post'
 //'http://localhost:8000/api/editProfile'
-const POST_request_URL = '/api/writeFirebase';
+const POST_request_URL = 'http://localhost:8000/api/writeFirebase';
 
 //uuId
 const uuId = 'User4KpZPzCR6zJy0KUX';
