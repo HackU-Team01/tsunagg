@@ -2,11 +2,18 @@ import { db } from '../../lib/firebase';
 import Form_hobby from './Form_hobby';
 import Form_place_option, { map_place } from './Form_place';
 
+//POST request URL
+//'https://httpbin.org/post'
+//'http://localhost:8000/api/editProfile'
+const POST_request_URL = '/api/writeFirebase';
+
+//uuId
+const uuId = 'User4KpZPzCR6zJy0KUX';
+
 export default function Input_Form() {
   //***********************************************************
-  //Firebaseにデータがある場合の読み取りのテスト
+  //Firebaseにデータがある場合の読み取り
   const handleOnClick_testtest = async () => {
-    const uuId = 'User4KpZPzCR6zJy0KUX';
     (async () => {
       try {
         const userRef = db.collection('user_info_sample').doc(uuId);
@@ -33,6 +40,8 @@ export default function Input_Form() {
           const hobby_data = userDoc.get('Attribute').Hobby;
           for (let i = 0; i < hobby_checkbox.length; i++) {
             hobby_checkbox[i].checked = false;
+            hobby_checkbox[i].className =
+              'inline-block px-6 py-2 border-2 border-red-300 text-red-300 text-sm leading-tight uppercase rounded-full border-red-300  transition duration-150 ease-in-out hover:scale-110 ';
             for (let j = 0; j < hobby_data.length; j++) {
               if (hobby_checkbox[i].value == hobby_data[j]) {
                 hobby_checkbox[i].checked = true;
@@ -104,10 +113,8 @@ export default function Input_Form() {
       },
     };
     //console.log(args);
-    //https://httpbin.org/post
     axios
-      //.post('https://httpbin.org/post', args)
-      .post('http://localhost:8000/api/editProfile', args)
+      .post(POST_request_URL, args)
       .then(function (response: any) {
         console.log(response.data);
       })
