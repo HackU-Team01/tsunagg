@@ -109,6 +109,7 @@ func Read_firebase_for_attribute_make(client *firestore.Client, uuid string) ([]
 	ent := Read_Data{}
 	if err = dsnap.DataTo(&ent); err != nil {
 		// glog.Errorln(err)
+		return nil, nil, err
 	}
 	// Attribute_slice := append(ent.Attribute.PlaceBorn, ent.Attribute.PlaceLive...)
 	// Attribute_slice = append(Attribute_slice, ent.Attribute.Sports...)
@@ -173,6 +174,7 @@ func Read_firebase_for_match(client *firestore.Client, user_attribute_i string) 
 	ent := Read_Data_Attribute{}
 	if err = dsnap.DataTo(&ent); err != nil {
 		// glog.Errorln(err)
+		return nil, err
 	}
 	Applicable_users_id := ent.Applicable_users_id
 	// fmt.Println("user_attribute_i")
@@ -201,6 +203,7 @@ func Read_firebase_for_match_attribute(client *firestore.Client, uuid string) ([
 	ent := Read_Data{}
 	if err = dsnap.DataTo(&ent); err != nil {
 		// glog.Errorln(err)
+		return nil, err
 	}
 	// Attribute_slice := append(ent.Attribute.PlaceBorn, ent.Attribute.PlaceLive...)
 	// Attribute_slice = append(Attribute_slice, ent.Attribute.Sports...)

@@ -4,10 +4,12 @@ import (
 	"fmt"
 	"net/http"
 	"strings"
-	"tsunagg/backend/model/db"
-	"tsunagg/backend/model/profile"
 
 	"cloud.google.com/go/firestore"
+
+	"tsunagg/backend/model/db"
+	"tsunagg/backend/model/profile"
+	"tsunagg/backend/router/response"
 )
 
 func contains(s []string, e string) bool {
@@ -42,18 +44,24 @@ func WriteFirebaseHandler(c *firestore.Client) http.HandlerFunc {
 		fmt.Println(uuid)
 		////////////////////////user_infoの更新//////////////////////////////
 
-		db.Write_firebase(c, body, uuid, 2)
+		if err := db.Write_firebase(c, body, uuid, 2); err != nil {
+			response.NG(w, response.FirestoreError)
+			return
+		}
 
 		////////////////////////Attribute_userの更新//////////////////////////////
 		// ユーザのAttributeを見ていく
 		// 全Attribute_infoを見ていく、
 		// まだ該当AttributeドキュメントがAttribute_infoコレクション中になかったら作る
-		var no_doc_Attribute []string
-		var user_attribute []string
-		var errors error
-		no_doc_Attribute, user_attribute, errors = db.Read_firebase_for_attribute_make(c, uuid)
-		fmt.Printf("error:%v\n", errors)
-		db.Make_firebase_Attribute(c, no_doc_Attribute, uuid, 1)
+		no_doc_Attribute, user_attribute, err := db.Read_firebase_for_attribute_make(c, uuid)
+		if err != nil {
+			response.NG(w, response.FirestoreError)
+			return
+		}
+		if err := db.Make_firebase_Attribute(c, no_doc_Attribute, uuid, 1); err != nil {
+			response.NG(w, response.FirestoreError)
+			return
+		}
 
 		// 各Attributeについて以下のように調べていく
 		// ドキュメント名がユーザのAttributeに含まれるか
@@ -61,27 +69,34 @@ func WriteFirebaseHandler(c *firestore.Client) http.HandlerFunc {
 		// 該当者IDリストの中にユーザのIDが含まれるか調査し、なかったら追加
 		// 含まれなかったら
 		// 該当者IDリストの中にユーザのIDが含まれるか調査し、なかったら削除
-		var attribute_doc_name []string
-		attribute_doc_name, errors = db.Read_firebase_for_attribute(c, uuid, 1)
-		fmt.Printf("error:%v\n", errors)
-		// fmt.Println("Attribute_docname")
-		// fmt.Println(attribute_doc_name)
-		// fmt.Println("user_attribute")
-		// fmt.Println(user_attribute)
+		attribute_doc_name, err := db.Read_firebase_for_attribute(c, uuid, 1)
+		if err != nil {
+			response.NG(w, response.FirestoreError)
+			return
+		}
 
 		//各Attributeドキュメントに対し、
 		for _, v := range attribute_doc_name {
+			var err error
 			if contains(user_attribute, v) {
 				//もし、ユーザのAttributeに含まれていたら、追加
-				db.Write_firebase_Attribute(c, user_attribute, v, uuid, 1)
+				err = db.Write_firebase_Attribute(c, user_attribute, v, uuid, 1)
 			} else {
 				//ユーザのAttributeに含まれていなかったら、削除
-				db.Write_firebase_Attribute(c, user_attribute, v, uuid, 2)
+				err = db.Write_firebase_Attribute(c, user_attribute, v, uuid, 2)
+			}
+			if err != nil {
+				response.NG(w, response.FirestoreError)
+				return
 			}
 		}
 
 		////////////////////////match_userの更新//////////////////////////////
-		profile.Matching(c, uuid, user_attribute)
+		if err := profile.Matching(c, uuid, user_attribute); err != nil {
+			response.NG(w, response.FirestoreError)
+			return
+		}
 
+		response.OK(w)
 	}
 }
