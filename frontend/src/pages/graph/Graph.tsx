@@ -1,6 +1,10 @@
 import Image from 'next/image';
 import React from 'react';
 
+import { db } from '../../lib/firebase';
+
+const uuId = 'User4KpZPzCR6zJy0KUX';
+
 let DIR = '';
 var nodes = null;
 var nodes_number = -1;
@@ -128,7 +132,7 @@ function draw() {
           background: '#D2E5FF',
         },
       },
-      font: { color: 'black', size: 20 },
+      font: { color: 'black', size: 15 },
       scaling: {
         customScalingFunction: function (min, max, total, value) {
           return value / total;
@@ -169,13 +173,152 @@ export default function DrawNetwork() {
     console.log(1);
   };
 
+  const handleOnClick_draw_network = async () => {
+    const head = document.getElementsByTagName('head')[0] as HTMLElement;
+    const scriptUrl = document.createElement('script');
+    scriptUrl.type = 'text/javascript';
+    scriptUrl.src = 'https://unpkg.com/vis-network/standalone/umd/vis-network.min.js';
+    head.appendChild(scriptUrl);
+
+    nodes = [];
+    edges = [
+      //{ from: 1, to: 1, value: 2, title: 'edge User1 User2\n hobby1, hobby2' }
+    ];
+
+    (async () => {
+      try {
+        const userRef = db.collection('user_info_sample').doc(uuId);
+        const userDoc = await userRef.get();
+        if (userDoc.exists) {
+          console.log(userDoc.data());
+
+          nodes = [
+            {
+              id: 0,
+              value: 30,
+              shape: 'circularImage',
+              image: DIR + 'usericon1.png',
+              label: uuId,
+              title:
+                '出身:' +
+                userDoc.get('Attribute').Place_born[1] +
+                '\n' +
+                '居住地:' +
+                userDoc.get('Attribute').Place_Live[1] +
+                '\n' +
+                '趣味:' +
+                userDoc.get('Attribute').Hobby +
+                '\n' +
+                '一言:' +
+                userDoc.get('Sentence') +
+                '\n',
+            },
+          ];
+        } else {
+          console.log('No such document!');
+        }
+      } catch (err) {
+        console.log(`Error!: ${JSON.stringify(err)}`);
+      }
+    })();
+
+    (async () => {
+      try {
+        const userRef = db.collection('match_user_sample').doc(uuId);
+        db.runTransaction((transaction) => {
+          return transaction.get(userRef).then((tokenSettingsDocSnapshot) => {
+            if (!tokenSettingsDocSnapshot.exists) {
+              throw 'Document does not exist!';
+            }
+
+            let tokensMap = tokenSettingsDocSnapshot.data().match_user_info;
+            console.log(12);
+            console.log(tokensMap);
+            Object.keys(tokensMap).forEach((e) => {
+              console.log(e, tokensMap[e]);
+
+              /*
+              (async () => {
+                try {
+                  const userRef1 = db.collection('user_info_sample').doc(e);
+                  const userDoc = await userRef1.get();
+                  if (userDoc.exists) {
+                    console.log(userDoc.data());
+                    
+                    nodes.push({
+                      id: nodes.length+1,
+                      value: 30,
+                      shape: 'circularImage',
+                      image: DIR + 'usericon1.png',
+                      label: uuId,
+                      title: 
+                      "出身:"+userDoc.get('Attribute').Place_born[1]+"\n"+
+                      "居住地:"+userDoc.get('Attribute').Place_Live[1]+"\n"+
+                      "趣味:"+userDoc.get('Attribute').Hobby+"\n"+
+                      "一言:"+userDoc.get('Sentence')+"\n",
+                    });
+                  } else {
+                    console.log('No such document!');
+                  }
+                } catch (err) {
+                  console.log(`Error!: ${JSON.stringify(err)}`);
+                }
+              })();
+              */
+              nodes.push({
+                id: nodes.length + 1,
+                value: 30,
+                shape: 'circularImage',
+                image: DIR + 'usericon1.png',
+                label: e,
+                title: e,
+              });
+              var edge_title = '';
+              tokensMap[e].forEach((x) => {
+                edge_title += x + '\n';
+              });
+              edges.push({
+                from: 0,
+                to: nodes.length,
+                value: tokensMap[e].length,
+                title: edge_title,
+              });
+
+              /*
+              res_recommend_user += e + '(';
+              tokensMap[e].forEach((x) => {
+                res_recommend_user += x + ',';
+              });
+              res_recommend_user += ')';
+              console.log(res_recommend_user);
+              */
+            });
+          });
+        })
+          .then(function () {
+            console.log(1111);
+
+            console.log(nodes);
+            console.log(edges);
+            draw();
+          })
+          .catch((error) => {
+            console.log('Transaction failed: ', error);
+          });
+      } catch (err) {
+        console.log(`Error!: ${JSON.stringify(err)}`);
+      }
+    })();
+  };
+
   return (
     <div className="w-full">
       <button
         type="button"
         className="absolute z-[10] inline-block py-2.5 px-6 text-xs font-medium leading-tight text-gray-900 bg-gray-100 thover:bg-gray-300 focus:bg-gray-300 active:bg-gray-400 rounded-full border-2 focus:outline-none focus:ring-0 shadow-md hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out border-gray-10 hover:scale-110 m-5"
         onClick={() => {
-          handleOnClick_testtest();
+          //handleOnClick_testtest();
+          handleOnClick_draw_network();
         }}
       >
         グラフ描画
