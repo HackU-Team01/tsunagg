@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 import { db } from '../../lib/firebase';
 import Form_hobby from './Form_hobby';
 import Form_place_option, { map_place } from './Form_place';
@@ -98,7 +100,7 @@ export default function Input_Form() {
     }
 
     alert('リクエスト送信');
-    const axios = require('axios');
+    //const axios = require('axios');
     console.log('POST リクエスト送信開始');
 
     let args = {
@@ -111,10 +113,17 @@ export default function Input_Form() {
         },
         Sentence: Sentence.value,
       },
+      headers: { Authorization: uuId },
     };
     //console.log(args);
+    //axios.defaults.headers.post['Authorization'] = uuId;
+    //axios.defaults.headers.post['Authorization'] = 'Bearer '+uuId;
     axios
-      .post(POST_request_URL, args)
+      .post(
+        POST_request_URL,
+        args,
+        //{headers: {"Authorization": uuId, "Access-Control-Allow-Origin":"*"}}
+      )
       .then(function (response: any) {
         console.log(response.data);
       })

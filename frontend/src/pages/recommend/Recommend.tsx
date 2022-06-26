@@ -10,7 +10,6 @@ let Recommend_channel_len: Array = null;
 
 export default function Recommend() {
   const handleOnClick_check_firebase = async () => {
-    console.log(1);
     Recommend_channel = [];
     Recommend_channel_len = [];
 
@@ -46,38 +45,34 @@ export default function Recommend() {
         res_recommend = '';
 
         const querySnapshot = await db.collection('Attribute_user_sample').get();
-        console.log('data size: ' + querySnapshot.size);
+        //console.log('data size: ' + querySnapshot.size);
         //console.log(querySnapshot.empty)
         //console.log(querySnapshot.docs.map(postDoc => postDoc.id))
         querySnapshot.forEach((postDoc) => {
           //console.log(postDoc.id, ' => ', JSON.stringify(postDoc.data()))
           //console.log(postDoc.id)
-          let usersArray: Array = postDoc.get('Applicable_users_id');
-          let f = 0;
-          usersArray.forEach((x) => {
-            if (uuId == x) {
-              f = 1;
+          try {
+            let usersArray: Array = postDoc.get('Applicable_users_id');
+            let f = 0;
+            usersArray.forEach((x) => {
+              if (uuId == x) f = 1;
+            });
+            //console.log(postDoc.get('channel_name'))
+            if (f == 1 && postDoc.get('channel_frag') == 1) {
+              Recommend_channel.push(postDoc.get('channel_name'));
+              Recommend_channel_len.push(postDoc.get('len_Applicable_users_id'));
+
+              if (res_recommend != '') {
+                res_recommend += ',';
+              }
+              res_recommend +=
+                postDoc.get('channel_name') + '(' + postDoc.get('len_Applicable_users_id') + '人)';
             }
-          });
-          if (f == 1 && postDoc.get('channel_frag') == 1) {
-            Recommend_channel.push(postDoc.get('channel_name'));
-            Recommend_channel_len.push(postDoc.get('len_Applicable_users_id'));
-
-            if (res_recommend != '') res_recommend += ',';
-            res_recommend +=
-              postDoc.get('channel_name') + '(' + postDoc.get('len_Applicable_users_id') + '人)';
+          } catch (err) {
+            //console.log("null")
           }
-          /*
-          if(f == 1 && postDoc.get('channel_frag') == 1){
-            Recommend_channel.push(postDoc.get('channel_name'));
-            Recommend_channel_len.push(postDoc.get('len_Applicable_users_id'));
-          }
-          */
-          document.getElementById('recommend_channel_id').textContent = res_recommend;
-          //elem.value = res_recommend;
-          //console.log(res_recommend)
         });
-
+        document.getElementById('recommend_channel_id').textContent = res_recommend;
         /*
         for(var i = 0; i < querySnapshot.size; i++){
           console.log(i)
@@ -88,6 +83,43 @@ export default function Recommend() {
         //for(var i = 0; i < Recommend_channel.length; i++) console.log("チャンネル: "+Recommend_channel[i]+"--->人数"+Recommend_channel_len[i]);
       } catch (err) {
         console.log(`Error: ${JSON.stringify(err)}`);
+      }
+    })();
+
+    (async () => {
+      let res_recommend_user = '';
+      try {
+        const userRef = db.collection('match_user_sample').doc(uuId);
+        db.runTransaction((transaction) => {
+          return transaction.get(userRef).then((tokenSettingsDocSnapshot) => {
+            if (!tokenSettingsDocSnapshot.exists) {
+              throw 'Document does not exist!';
+            }
+
+            let tokensMap = tokenSettingsDocSnapshot.data().match_user_info;
+            console.log(12);
+            console.log(tokensMap);
+            Object.keys(tokensMap).forEach((e) => {
+              console.log(e, tokensMap[e]);
+
+              res_recommend_user += e + '(';
+              tokensMap[e].forEach((x) => {
+                res_recommend_user += x + ',';
+              });
+              res_recommend_user += ')';
+              console.log(res_recommend_user);
+            });
+          });
+        })
+          .then(function () {
+            console.log(res_recommend_user);
+            document.getElementById('recommend_user_id').textContent = res_recommend_user;
+          })
+          .catch((error) => {
+            console.log('Transaction failed: ', error);
+          });
+      } catch (err) {
+        console.log(`Error!: ${JSON.stringify(err)}`);
       }
     })();
   };
