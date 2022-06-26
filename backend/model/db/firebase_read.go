@@ -30,9 +30,9 @@ type Read_Data struct {
 
 type Read_Data_Attribute struct {
 	Applicable_users_id     []string `firestore:"Applicable_users_id"`
-	channel_frag            int      `firestore:"channel_frag"`
-	channel_name            string   `firestore:"channel_name"`
-	len_Applicable_users_id int      `firestore:"len_Applicable_users_id"`
+	Channel_frag            int      `firestore:"channel_frag"`
+	Channel_name            string   `firestore:"channel_name"`
+	Len_Applicable_users_id int      `firestore:"len_Applicable_users_id"`
 }
 
 // Attributeスライスの中の重複を消す

@@ -124,8 +124,6 @@ func Make_firebase_Attribute(client *firestore.Client, A_slice []string, uuid st
 				return err
 			}
 		}
-	} else if pattern == 2 {
-
 	}
 	return nil
 }
@@ -147,8 +145,7 @@ func Write_firebase_Attribute(client *firestore.Client, user_attribute []string,
 		// 取得した配列に、新しい要素を追加！
 		var res, _ = snapshot.Data()["Applicable_users_id"].([]interface{})
 		// fmt.Println(res)
-		if interfaceContain(uuid, res) == true {
-		} else if interfaceContain(uuid, res) == false {
+		if !interfaceContain(uuid, res) {
 			users_id := append(res, uuid)
 			_, err := client.Collection("Attribute_user_sample").Doc(attribute_doc_name).Set(context.Background(), map[string][]interface{}{
 				"Applicable_users_id": users_id,
@@ -191,7 +188,7 @@ func Write_firebase_Attribute(client *firestore.Client, user_attribute []string,
 
 		var res, _ = snapshot.Data()["Applicable_users_id"].([]interface{})
 		//fmt.Println(res)
-		if interfaceContain(uuid, res) == true {
+		if interfaceContain(uuid, res) {
 			users_id := remove(res, uuid)
 			_, err := client.Collection("Attribute_user_sample").Doc(attribute_doc_name).Set(context.Background(), map[string][]interface{}{
 				"Applicable_users_id": users_id,
@@ -206,11 +203,9 @@ func Write_firebase_Attribute(client *firestore.Client, user_attribute []string,
 				return err
 			}
 
-		} else if interfaceContain(uuid, res) == false {
-			//ユーザが持たないAttributeかつ、Applicable_users_idにも含まれないものは、
-			//何もしない
-
 		}
+		//ユーザが持たないAttributeかつ、Applicable_users_idにも含まれないものは、
+		//何もしない
 	}
 	return nil
 }
