@@ -132,7 +132,7 @@ function draw() {
           background: '#D2E5FF',
         },
       },
-      font: { color: 'black', size: 15 },
+      font: { color: 'black', size: 10 },
       scaling: {
         customScalingFunction: function (min, max, total, value) {
           return value / total;
@@ -237,34 +237,6 @@ export default function DrawNetwork() {
             Object.keys(tokensMap).forEach((e) => {
               console.log(e, tokensMap[e]);
 
-              /*
-              (async () => {
-                try {
-                  const userRef1 = db.collection('user_info_sample').doc(e);
-                  const userDoc = await userRef1.get();
-                  if (userDoc.exists) {
-                    console.log(userDoc.data());
-                    
-                    nodes.push({
-                      id: nodes.length+1,
-                      value: 30,
-                      shape: 'circularImage',
-                      image: DIR + 'usericon1.png',
-                      label: uuId,
-                      title: 
-                      "出身:"+userDoc.get('Attribute').Place_born[1]+"\n"+
-                      "居住地:"+userDoc.get('Attribute').Place_Live[1]+"\n"+
-                      "趣味:"+userDoc.get('Attribute').Hobby+"\n"+
-                      "一言:"+userDoc.get('Sentence')+"\n",
-                    });
-                  } else {
-                    console.log('No such document!');
-                  }
-                } catch (err) {
-                  console.log(`Error!: ${JSON.stringify(err)}`);
-                }
-              })();
-              */
               nodes.push({
                 id: nodes.length + 1,
                 value: 30,
@@ -283,15 +255,6 @@ export default function DrawNetwork() {
                 value: tokensMap[e].length,
                 title: edge_title,
               });
-
-              /*
-              res_recommend_user += e + '(';
-              tokensMap[e].forEach((x) => {
-                res_recommend_user += x + ',';
-              });
-              res_recommend_user += ')';
-              console.log(res_recommend_user);
-              */
             });
           });
         })
@@ -311,18 +274,146 @@ export default function DrawNetwork() {
     })();
   };
 
+  const handleOnClick_draw_network_all = async () => {
+    const head = document.getElementsByTagName('head')[0] as HTMLElement;
+    const scriptUrl = document.createElement('script');
+    scriptUrl.type = 'text/javascript';
+    scriptUrl.src = 'https://unpkg.com/vis-network/standalone/umd/vis-network.min.js';
+    head.appendChild(scriptUrl);
+
+    nodes = [];
+    edges = [];
+    var cnt = 0;
+
+    var user_node_data = null;
+    var map_user_node = new Map<string, number>();
+    var edge_all: number[][] = new Array();
+    var edge_all_data: string[][] = new Array();
+
+    (async () => {
+      try {
+        user_node_data = await db.collection('user_info_sample').get();
+        console.log('data size: ' + user_node_data.size);
+        //console.log(user_node_data.empty)
+        //console.log(user_node_data.docs.map(postDoc => postDoc.id))
+        user_node_data.forEach((userDoc) => {
+          //console.log(postDoc.id, ' => ', JSON.stringify(postDoc.data()))
+          //console.log(userDoc.data());
+          map_user_node.set(userDoc.id, cnt);
+          nodes.push({
+            id: cnt,
+            value: 30,
+            shape: 'circularImage',
+            image: DIR + 'usericon1.png',
+            label: userDoc.id,
+            physics: false,
+            title:
+              'uuid: ' +
+              userDoc.id +
+              '\n' +
+              '出身: ' +
+              userDoc.get('Attribute').Place_born[1] +
+              '\n' +
+              '居住地: ' +
+              userDoc.get('Attribute').Place_Live[1] +
+              '\n' +
+              '趣味: ' +
+              userDoc.get('Attribute').Hobby +
+              '\n' +
+              '一言: ' +
+              userDoc.get('Sentence') +
+              '\n',
+          });
+          cnt++;
+        });
+
+        for (var i = 0; i < cnt; i++) {
+          edge_all[i] = new Array();
+          edge_all_data[i] = new Array();
+          for (var j = 0; j < cnt; j++) {
+            edge_all[i][j] = 0;
+            edge_all_data[i][j] = '';
+          }
+        }
+        async function create_edge(name: string, ff, number) {
+          //console.log(name)
+          try {
+            const userRef = db.collection('match_user_sample').doc(name);
+            db.runTransaction((transaction) => {
+              return transaction.get(userRef).then((tokenSettingsDocSnapshot) => {
+                if (!tokenSettingsDocSnapshot.exists) {
+                  throw 'Document does not exist!';
+                }
+
+                let tokensMap = tokenSettingsDocSnapshot.data().match_user_info;
+
+                //console.log(tokensMap);
+                Object.keys(tokensMap).forEach((e) => {
+                  //console.log(e, tokensMap[e]);
+                  if (map_user_node.get(name) < map_user_node.get(e)) {
+                    var edge_title =
+                      name + '-' + e + '\n 繋がりの強さ: ' + tokensMap[e].length + '\n 共通点:  \n';
+                    tokensMap[e].forEach((x) => {
+                      edge_title += '　　　　　' + x + '\n';
+                    });
+                    edges.push({
+                      from: map_user_node.get(name),
+                      to: map_user_node.get(e),
+                      value: tokensMap[e].length,
+                      title: edge_title,
+                    });
+                  }
+                });
+              });
+            })
+              .then(function () {
+                if (ff == cnt - 1) {
+                  console.log('finish');
+                  draw();
+                }
+              })
+              .catch((error) => {
+                console.log('Transaction failed: ', error);
+              });
+          } catch (err) {
+            console.log(`Error!: ${JSON.stringify(err)}`);
+          }
+        }
+        for (var i = 0; i < cnt; i++) {
+          //console.log(i)
+          await create_edge(nodes[i].label, i);
+        }
+      } catch (err) {
+        console.log(`Error: ${JSON.stringify(err)}`);
+      }
+    })();
+  };
+
   return (
     <div className="w-full">
-      <button
-        type="button"
-        className="absolute z-[10] inline-block py-2.5 px-6 text-xs font-medium leading-tight text-gray-900 bg-gray-100 thover:bg-gray-300 focus:bg-gray-300 active:bg-gray-400 rounded-full border-2 focus:outline-none focus:ring-0 shadow-md hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out border-gray-10 hover:scale-110 m-5"
-        onClick={() => {
-          //handleOnClick_testtest();
-          handleOnClick_draw_network();
-        }}
-      >
-        グラフ描画
-      </button>
+      <div className="absolute z-[20]">
+        <button
+          type="button"
+          className="z-[10] inline-block py-2.5 px-6 text-xs font-medium leading-tight text-gray-900 bg-gray-100 thover:bg-gray-300 focus:bg-gray-300 active:bg-gray-400 rounded-full border-2 focus:outline-none focus:ring-0 shadow-md hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out border-gray-10 hover:scale-110 m-5"
+          onClick={() => {
+            //handleOnClick_testtest();
+            handleOnClick_draw_network();
+          }}
+        >
+          グラフ描画 star
+        </button>
+
+        <button
+          type="button"
+          className="z-[10] inline-block py-2.5 px-6 text-xs font-medium leading-tight text-gray-900 bg-gray-100 thover:bg-gray-300 focus:bg-gray-300 active:bg-gray-400 rounded-full border-2 focus:outline-none focus:ring-0 shadow-md hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out border-gray-10 hover:scale-110 m-5"
+          onClick={() => {
+            //handleOnClick_testtest();
+            handleOnClick_draw_network_all();
+          }}
+        >
+          グラフ描画 all
+        </button>
+      </div>
 
       <div className="w-full h-screen bg-white .place-content-center" id="mynetwork"></div>
     </div>

@@ -100,7 +100,7 @@ export default function Input_Form() {
     }
 
     alert('リクエスト送信');
-    //const axios = require('axios');
+    const axios = require('axios');
     console.log('POST リクエスト送信開始');
 
     let args = {
@@ -122,10 +122,15 @@ export default function Input_Form() {
       .post(
         POST_request_URL,
         args,
-        //{headers: {"Authorization": uuId, "Access-Control-Allow-Origin":"*"}}
+        //{headers: {"Authorization": uuId, "Access-Control-Allow-Origin":"http://localhost:8000/api/writeFirebase"}}
+        //{headers: {"Authorization": "Bearer "+uuId}}
       )
       .then(function (response: any) {
+        console.log(1111);
         console.log(response.data);
+        console.log(response.headers);
+        console.log(args.data);
+        console.log(args.headers);
       })
       .catch(function (error: any) {
         console.log(error);

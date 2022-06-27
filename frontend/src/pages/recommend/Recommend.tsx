@@ -58,7 +58,11 @@ export default function Recommend() {
               if (uuId == x) f = 1;
             });
             //console.log(postDoc.get('channel_name'))
-            if (f == 1 && postDoc.get('channel_frag') == 1) {
+            if (
+              f == 1 &&
+              postDoc.get('channel_frag') == 1 &&
+              postDoc.get('len_Applicable_users_id') >= 3
+            ) {
               Recommend_channel.push(postDoc.get('channel_name'));
               Recommend_channel_len.push(postDoc.get('len_Applicable_users_id'));
 
