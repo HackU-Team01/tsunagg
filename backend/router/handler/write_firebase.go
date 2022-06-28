@@ -3,7 +3,8 @@ package handler
 import (
 	"fmt"
 	"net/http"
-	"strings"
+	//"strings"
+	"encoding/json"
 
 	"cloud.google.com/go/firestore"
 
@@ -19,6 +20,12 @@ func contains(s []string, e string) bool {
 		}
 	}
 	return false
+}
+
+type header struct {
+	Header struct {
+		Authorization string `json:"Authorization"`
+	} `json:"headers"`
 }
 
 func WriteFirebaseHandler(c *firestore.Client) http.HandlerFunc {
@@ -37,11 +44,18 @@ func WriteFirebaseHandler(c *firestore.Client) http.HandlerFunc {
 		// }
 		// fmt.Println(string(file))
 
-		// リクエストヘッダに付与されているuuidを取得
-		authHeader := r.Header.Get("Authorization")
-		uuid := strings.Replace(authHeader, "Bearer ", "", 1)
+		// リクエスト カスタムヘッダに付与されているuuidを取得
+		var hd header
+		json.Unmarshal(body, &hd)
+		fmt.Println(hd.Header.Authorization)
+		uuid := (hd.Header.Authorization)
 		fmt.Println("Authorizationヘッダに付与されたuuid")
 		fmt.Println(uuid)
+		// リクエストヘッダに付与されているuuidを取得
+		//authHeader := r.Header.Get("Authorization")
+		//uuid := strings.Replace(authHeader, "Bearer ", "", 1)
+		//fmt.Println("Authorizationヘッダに付与されたuuid")
+		//fmt.Println(uuid)
 		////////////////////////user_infoの更新//////////////////////////////
 
 		if err := db.Write_firebase(c, body, uuid, 2); err != nil {
