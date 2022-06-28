@@ -4,7 +4,7 @@ const https = require('https');
 const express = require('express');
 const next = require('next');
 
-const port = parseInt(process.env.PORT || '3333');
+const port = parseInt(process.env.PORT || '3000');
 const host = '0.0.0.0';
 
 const app = next({
