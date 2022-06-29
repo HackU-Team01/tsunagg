@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3333",
+    "dev": "node ./server.js",
+    "dev:https": "HTTPS=true node ./server.js",
     "build": "next build",
     "start": "next start -p 4000",
     "lint": "next lint --dir src",
@@ -14,6 +15,7 @@
   "dependencies": {
     "axios": "^0.27.2",
     "clsx": "^1.1.1",
+    "express": "^4.18.1",
     "firebase": "^8.10.1",
     "next": "^12.1.6",
     "next-head-seo": "^0.1.3",
