@@ -7,11 +7,15 @@ let res_recommend = '';
 
 let Recommend_channel: Array = null;
 let Recommend_channel_len: Array = null;
+let Recommend_user: Array = null;
+let Recommend_user_atribute: Array = null;
 
 export default function Recommend() {
   const handleOnClick_check_firebase = async () => {
     Recommend_channel = [];
     Recommend_channel_len = [];
+    Recommend_user = [];
+    Recommend_user_atribute = [];
 
     (async () => {
       try {
@@ -45,12 +49,7 @@ export default function Recommend() {
         res_recommend = '';
 
         const querySnapshot = await db.collection('Attribute_user_sample').get();
-        //console.log('data size: ' + querySnapshot.size);
-        //console.log(querySnapshot.empty)
-        //console.log(querySnapshot.docs.map(postDoc => postDoc.id))
         querySnapshot.forEach((postDoc) => {
-          //console.log(postDoc.id, ' => ', JSON.stringify(postDoc.data()))
-          //console.log(postDoc.id)
           try {
             let usersArray: Array = postDoc.get('Applicable_users_id');
             let f = 0;
@@ -76,15 +75,45 @@ export default function Recommend() {
             //console.log("null")
           }
         });
-        document.getElementById('recommend_channel_id').textContent = res_recommend;
-        /*
-        for(var i = 0; i < querySnapshot.size; i++){
-          console.log(i)
-          console.log(querySnapshot)
-        }
-        */
+        //document.getElementById('recommend_channel_id').textContent = res_recommend;
 
         //for(var i = 0; i < Recommend_channel.length; i++) console.log("チャンネル: "+Recommend_channel[i]+"--->人数"+Recommend_channel_len[i]);
+
+        var target = document.getElementById('recommend_channel_table');
+        while (target.firstChild) {
+          console.log(2);
+          target.removeChild(target.firstChild);
+        }
+        for (var i = 0; i < Recommend_channel.length; i++) {
+          var newElement = document.createElement('tbody');
+          var newContent = document.createElement('tr');
+          newContent.className = 'bg-white border-b';
+
+          var newChild = document.createElement('th');
+          newChild.scope = 'row';
+          newChild.className = 'px-6 py-4 font-medium text-gray-900 whitespace-nowrap';
+          newChild.appendChild(document.createTextNode(Recommend_channel[i]));
+          newContent.appendChild(newChild);
+
+          newChild = document.createElement('td');
+          newChild.className = 'px-6 py-4  font-medium text-gray-400 whitespace-nowrap';
+          newChild.appendChild(document.createTextNode(Recommend_channel_len[i] + '人'));
+          newContent.appendChild(newChild);
+
+          newChild = document.createElement('td');
+          newChild.className = 'px-6 py-4  font-medium text-gray-900 whitespace-nowrap';
+          var nweChildChild = document.createElement('a');
+          nweChildChild.className =
+            'text-red-300 transition duration-150 hover:scale-110 hover:text-red-600';
+          nweChildChild.href = '#';
+          nweChildChild.appendChild(document.createTextNode('参加する'));
+          newChild.appendChild(nweChildChild);
+          newContent.appendChild(newChild);
+          newElement.appendChild(newContent);
+
+          var parentDiv = document.getElementById('recommend_channel_table');
+          parentDiv.appendChild(newElement);
+        }
       } catch (err) {
         console.log(`Error: ${JSON.stringify(err)}`);
       }
@@ -104,20 +133,57 @@ export default function Recommend() {
             console.log(12);
             console.log(tokensMap);
             Object.keys(tokensMap).forEach((e) => {
-              console.log(e, tokensMap[e]);
-
+              //console.log(e, tokensMap[e]);
+              Recommend_user.push(e);
+              var xx = '';
               res_recommend_user += e + '(';
               tokensMap[e].forEach((x) => {
                 res_recommend_user += x + ',';
+                xx += x + ' ';
               });
               res_recommend_user += ')';
-              console.log(res_recommend_user);
+              //console.log(res_recommend_user);
+              Recommend_user_atribute.push(xx);
             });
           });
         })
           .then(function () {
-            console.log(res_recommend_user);
-            document.getElementById('recommend_user_id').textContent = res_recommend_user;
+            //console.log(res_recommend_user);
+            //document.getElementById('recommend_user_id').textContent = res_recommend_user;
+            var target = document.getElementById('recommend_user_table');
+            while (target.firstChild) {
+              console.log(2);
+              target.removeChild(target.firstChild);
+            }
+            for (var i = 0; i < Recommend_user.length; i++) {
+              var newElement = document.createElement('tbody');
+              var newContent = document.createElement('tr');
+              newContent.className = 'bg-white border-b';
+
+              var newChild = document.createElement('th');
+              newChild.scope = 'row';
+              newChild.className = 'px-6 py-4 font-medium text-gray-900 whitespace-nowrap';
+              newChild.appendChild(document.createTextNode(Recommend_user[i]));
+              newContent.appendChild(newChild);
+
+              newChild = document.createElement('td');
+              newChild.className = 'px-6 py-4 text-gray-400';
+              newChild.appendChild(document.createTextNode(Recommend_user_atribute[i]));
+              newContent.appendChild(newChild);
+
+              newChild = document.createElement('td');
+              newChild.className = 'px-6 py-4  font-medium text-gray-400 whitespace-nowrap';
+              var nweChildChild = document.createElement('a');
+              nweChildChild.className = 'font-medium text-blue-600 hover:underline';
+              nweChildChild.href = '#';
+              nweChildChild.appendChild(document.createTextNode(' '));
+              newChild.appendChild(nweChildChild);
+              newContent.appendChild(newChild);
+              newElement.appendChild(newContent);
+
+              var parentDiv = document.getElementById('recommend_user_table');
+              parentDiv.appendChild(newElement);
+            }
           })
           .catch((error) => {
             console.log('Transaction failed: ', error);
@@ -145,27 +211,50 @@ export default function Recommend() {
       <div className="m-3 rounded-xl border-2 border-gray-300 shadow-md">
         <div className="m-3">
           <p className="m-4 text-2xl text-red-500">入力データ</p>
-          <p className="m-4 text-xl text-gray-500">uuid: {uuId}</p>
-          <p>
-            <span className="m-4 text-xl text-gray-700">名前:</span>
-            <span className="m-4 text-xl text-gray-500">{uuId}</span>
-          </p>
-          <p>
-            <span className="m-4 text-xl text-gray-700">出身地:</span>
-            <span className="m-4 text-xl text-gray-500" id="user_data_place_born"></span>
-          </p>
-          <p>
-            <span className="m-4 text-xl text-gray-700">居住地:</span>
-            <span className="m-4 text-xl text-gray-500" id="user_data_place_live"></span>
-          </p>
-          <p>
-            <span className="m-4 text-xl text-gray-700">趣味:</span>
-            <span className="m-4 text-xl text-gray-500" id="user_data_hobby"></span>
-          </p>
-          <p>
-            <span className="m-4 text-xl text-gray-700">最後に一言:</span>
-            <span className="m-4 text-xl text-gray-500" id="user_data_sectence"></span>
-          </p>
+        </div>
+        <div className="relative overflow-x-auto sm:rounded-lg m-4">
+          <table className="w-full text-sm text-left text-gray-500">
+            <tbody>
+              <tr className="bg-white border-b">
+                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                  名前
+                </th>
+                <td className="px-6 py-4">{uuId}</td>
+              </tr>
+              <tr className="bg-white border-b">
+                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                  出身地
+                </th>
+                <td className="px-6 py-4">
+                  <span className=" " id="user_data_place_born"></span>
+                </td>
+              </tr>
+              <tr className="bg-white border-b">
+                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                  居住地
+                </th>
+                <td className="px-6 py-4">
+                  <span className="" id="user_data_place_live"></span>
+                </td>
+              </tr>
+              <tr className="bg-white border-b">
+                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                  趣味
+                </th>
+                <td className="px-6 py-4">
+                  <span className="" id="user_data_hobby"></span>
+                </td>
+              </tr>
+              <tr className="bg-white border-b">
+                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                  最後に一言
+                </th>
+                <td className="px-6 py-4">
+                  <span className="" id="user_data_sectence"></span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
 
@@ -173,6 +262,40 @@ export default function Recommend() {
         <div className="m-3">
           <p className="m-4 text-2xl text-red-500">おすすめチャンネル</p>
           <p className="m-4 text-xl text-gray-500" id="recommend_channel_id"></p>
+
+          <div className="relative overflow-x-auto sm:rounded-lg m-4">
+            <table className="w-full text-sm text-left text-gray-500" id="recommend_channel_table">
+              <thead className="text-xs text-gray-700 uppercase bg-gray-50">
+                <tr>
+                  <th scope="col" className="px-6 py-3">
+                    チャンネル名
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    人数
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    <span className="sr-only">参加</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="bg-white border-b">
+                  <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                    -
+                  </th>
+                  <td className="px-6 py-4">-</td>
+                  <td className="px-6 py-4 text-right">
+                    <a
+                      href="#"
+                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                    >
+                      参加
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
@@ -180,6 +303,40 @@ export default function Recommend() {
         <div className="m-3">
           <p className="m-4 text-2xl text-red-500">おすすめユーザー</p>
           <p className="m-4 text-xl text-gray-500" id="recommend_user_id"></p>
+
+          <div className="relative overflow-x-auto sm:rounded-lg m-4">
+            <table className="w-full text-sm text-left text-gray-500" id="recommend_user_table">
+              <thead className="text-xs text-gray-700 uppercase bg-gray-50">
+                <tr>
+                  <th scope="col" className="px-6 py-3">
+                    おすすめユーザー
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    共通点
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    <span className="sr-only">参加</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="bg-white border-b">
+                  <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                    -
+                  </th>
+                  <td className="px-6 py-4">-</td>
+                  <td className="px-6 py-4 text-right">
+                    <a
+                      href="#"
+                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                    >
+                      {' '}
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
