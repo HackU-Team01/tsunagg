@@ -3,8 +3,14 @@ import * as admin from 'firebase-admin';
 import { oauthAccess, usersInfo } from './slack';
 import { URL } from 'url';
 
+const  serviceAccount = require("../serviceAccountKey.json")
+
 if (admin.apps.length < 1) {
-  admin.initializeApp();
+  admin.initializeApp(
+    {
+      credential: admin.credential.cert(serviceAccount),
+    }
+  );
 }
 
 exports.authWithSlack = functions.https.onRequest(async (req, res) => {
@@ -27,13 +33,14 @@ exports.authWithSlack = functions.https.onRequest(async (req, res) => {
     const customToken = await admin.auth().createCustomToken(userCredential.user_id);
     functions.logger.log("customToken:", customToken);
 
-    if (redirectUri) {
-      const url = new URL(redirectUri);
+    if (redirectUri !== undefined) {
+      const url = new URL(`http://localhost:3000/${redirectUri}`);
       url.search = `t=${customToken}`;
       functions.logger.log("url:", url);
 
       res.redirect(303, url.toString());
     } else {
+      functions.logger.log("this is error elseeeee:"); 
       res.json({
         custom_token: customToken
       }).end();
