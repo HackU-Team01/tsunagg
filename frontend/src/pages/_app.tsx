@@ -1,8 +1,11 @@
-import React, { useEffect } from "react";
-import { AppProps } from "next/app";
-import { AuthProvider } from "../lib/auth/AuthProvider";
-import "../styles/globals.css";
+import { AppProps } from 'next/app';
+import React from 'react';
 
+import { AuthProvider } from '@/lib/auth/AuthProvider';
+
+import '../styles/globals.css';
+
+// eslint-disable-next-line no-undef
 const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
   return (
     <AuthProvider>
