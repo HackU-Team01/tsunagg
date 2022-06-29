@@ -64,3 +64,5 @@ node_modules/
 
 # dotenv environment variables file
 .env
+
+./server/tsunagg-334f1-firebase-adminsdk-xxh0c-ba6773bf3b.json
