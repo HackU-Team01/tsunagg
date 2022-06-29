@@ -1,0 +1,26 @@
+curl -X POST "http://localhost:8000/api/writeFirebase" -H "Content-Type: application/json" -d '{"name": "太郎", "address": "大阪府"}'
+
+
+
+{"data":{"Name":"namename","Attribute":{"Sports":["野球","サッカー"],"Place_born":["関東","東京"],"Place_live":["関東","東京"]},"Sentence":"よろしくお願いします"}}
+
+curl -X POST "http://localhost:8000/api/writeFirebase" -H "Content-Type: application/json" -d '{"data":{"Name":"namename","Attribute":{"Sports":["野球","サッカー"],"Place_born":["関東","東京"],"Place_live":["関東","東京"]},"Sentence":"よろしくお願いします"}}'
+
+; ユーザ１
+; curl -X POST "http://localhost:8000/api/writeFirebase" -H "Content-Type: application/json" -d '{"data":{"Name":"namename","Attribute":{"Sports":["野球","テニス"],"Place_born":["関東","東京"],"Place_live":["関東","東京"]},"Sentence":"ユーザ１"}}' -H 'Authorization: Bearer User1KpZPzCR6zJy0KUX' | jq .
+; ユーザ２
+; curl -X POST "http://localhost:8000/api/writeFirebase" -H "Content-Type: application/json" -d '{"data":{"Name":"namename","Attribute":{"Sports":["野球","サッカー"],"Place_born":["関東","東京"],"Place_live":["関東","東京"]},"Sentence":"ユーザ２"}}' -H 'Authorization: Bearer User2KpZPzCR6zJy0KUX' | jq .
+; ユーザ３
+; curl -X POST "http://localhost:8000/api/writeFirebase" -H "Content-Type: application/json" -d '{"data":{"Name":"namename","Attribute":{"Sports":["バスケ","バレー"],"Place_born":["関西","大阪"],"Place_live":["関東","東京"]},"Sentence":"ユーザ３"}}' -H 'Authorization: Bearer User3KpZPzCR6zJy0KUX' | jq .
+
+
+
+ユーザ１
+curl -X POST "http://localhost:8000/api/writeFirebase" -H "Content-Type: application/json" -d '{"data":{"Name":"namename","Attribute":{"Hobby":["野球","テニス","旅行","Twitter"],"Place_born":["関東","東京"],"Place_live":["関東","埼玉"]},"Sentence":"ユーザ１"}}' -H 'Authorization: Bearer User1KpZPzCR6zJy0KUX' | jq .
+curl -X POST "http://localhost:8000/api/writeFirebase" -H "Content-Type: application/json" -d '{"data":{"Name":"namename","Attribute":{"Hobby":["野球","旅行","Twitter"],"Place_born":["関東","東京"],"Place_live":["関東","埼玉"]},"Sentence":"ユーザ１"}}' -H 'Authorization: Bearer User1KpZPzCR6zJy0KUX' | jq .
+ユーザ２
+curl -X POST "http://localhost:8000/api/writeFirebase" -H "Content-Type: application/json" -d '{"data":{"Name":"namename","Attribute":{"Hobby":["野球","サッカー","ポケモン"],"Place_born":["関東","東京"],"Place_live":["関東","茨城"]},"Sentence":"ユーザ２"}}' -H 'Authorization: Bearer User2KpZPzCR6zJy0KUX' | jq .
+ユーザ３
+curl -X POST "http://localhost:8000/api/writeFirebase" -H "Content-Type: application/json" -d '{"data":{"Name":"namename","Attribute":{"Hobby":["バスケ","音楽","Netflix"],"Place_born":["関西","大阪"],"Place_live":["関東","東京"]},"Sentence":"ユーザ３"}}' -H 'Authorization: Bearer User3KpZPzCR6zJy0KUX' | jq .
+ユーザ4
+curl -X POST "http://localhost:8000/api/writeFirebase" -H "Content-Type: application/json" -d '{"data":{"Name":"アイウエオ","Attribute":{"Hobby":["野球","ドラクエ","銀魂","ハイキュー","魔法少女まどか★マギカ","¥ellow"],"Place_born":["東北地方","青森県"],"Place_live":["北海道地方","北海道"]},"Sentence":"よろしく"}}' -H 'Authorization: Bearer User4KpZPzCR6zJy0KUX' | jq .

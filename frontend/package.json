@@ -13,6 +13,7 @@
     "prepare": "cd .. && husky install frontend/.husky"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "clsx": "^1.1.1",
     "express": "^4.18.1",
     "firebase": "^8.10.1",

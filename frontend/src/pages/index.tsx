@@ -1,37 +1,32 @@
 import { NextPage } from 'next';
+import React from 'react';
 
 import Layout from '@/components/common/Layout';
-import Counter from '@/components/counter/Counter';
-import { getRandomNum } from '@/lib/counterUtil';
 
-import Input_Form from "./form";
-
- 
+import Graph from './graph/Graph';
+import Recommend from './recommend/Recommend';
 
 const Home: NextPage = () => {
-  const initialNum = getRandomNum();
-
   return (
     <Layout path="/" title="タイトル" noTitleTemplate={true} isTopPage={true}>
-    
       <div className="w-screen h-screen bg-white font-family-karla">
-      <div className="grid place-items-center mt-12 md:pt-0 md:px-24 lg:px-32">
-    
-  
-      <Input_Form />
-
-
-
-      <Counter initialNum={initialNum} />
-
-
-
+        <div className="grid grid-cols-6 gap-2 m-5">
+          <div className="col-span-2 col-start-1 m-4 h-screen">
+            <div className="m-1">
+              <Recommend />
+            </div>
+          </div>
+          <div className="col-span-4 col-start-3 m-7 h-screen rounded-2xl border-2 border-gray-300 shadow-md">
+            <div className="m-1">
+              <Graph />
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
       </div>
-      </div>
-
     </Layout>
   );
 };
-
 
 export default Home;
