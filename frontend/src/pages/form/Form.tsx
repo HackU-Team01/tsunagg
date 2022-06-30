@@ -56,6 +56,19 @@ export default function Input_Form() {
         } else {
           console.log('No such document!');
         }
+
+        userRef = db.collection('user_sample').doc(uuId);
+        userDoc = await userRef.get();
+        if (userDoc.exists) {
+          //console.log('doc.id:', userDoc.id);
+          //console.log(userDoc.data());
+
+          let elem = document.getElementById('Name_input_form');
+          elem.value = userDoc.get('Name');
+        } else {
+          console.log('No such document!');
+        }
+
         //await db.app.delete()
       } catch (err) {
         console.log(`Error!: ${JSON.stringify(err)}`);
