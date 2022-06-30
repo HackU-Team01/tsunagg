@@ -9,8 +9,11 @@ import (
 
 	"tsunagg/backend/model/db"
 	"tsunagg/backend/model/profile"
+	"tsunagg/backend/model/profile/chat"
 	"tsunagg/backend/router/response"
 )
+
+const defaultChannel = "#random"
 
 func contains(s []string, e string) bool {
 	for _, v := range s {
@@ -36,6 +39,11 @@ func WriteFirebaseHandler(c *firestore.Client) http.HandlerFunc {
 
 		// リクエスト カスタムヘッダに付与されているuuidを取得
 		uuid := p.Headers.Authorization
+		// 認証処理．users コレクションに uuid が登録されているかチェック
+		if _, err := c.Collection("users").Doc(uuid).Get(r.Context()); err != nil {
+			response.NG(w, response.NotAuthedError)
+			return
+		}
 		fmt.Printf("uuid: %s\n", uuid)
 
 		////////////////////////user_infoの更新//////////////////////////////
@@ -89,6 +97,13 @@ func WriteFirebaseHandler(c *firestore.Client) http.HandlerFunc {
 		////////////////////////match_userの更新//////////////////////////////
 		if err := profile.Matching(c, uuid, user_attribute); err != nil {
 			response.NG(w, response.FirestoreError)
+			return
+		}
+
+		// Slack に自己紹介文を投稿
+		// とりあえず投稿するチャンネルは #random にしています
+		if err := chat.SendMessage(r.Context(), c, p, uuid, defaultChannel); err != nil {
+			response.NG(w, response.SlackError)
 			return
 		}
 
