@@ -112,17 +112,19 @@ export default function DrawNetwork() {
     head.appendChild(scriptUrl);
 
     nodes = [];
-    edges = [
-      //{ from: 1, to: 1, value: 2, title: 'edge User1 User2\n hobby1, hobby2' }
-    ];
+    edges = [];
+    var used_user = new Set();
+    var cnt = 1;
+    var map_user_node = new Map<string, number>();
 
     (async () => {
       try {
         const userRef = db.collection('user_info_sample').doc(uuId);
         const userDoc = await userRef.get();
         if (userDoc.exists) {
-          console.log(userDoc.data());
-
+          //console.log(userDoc.data());
+          used_user.add(userDoc.id);
+          map_user_node.set(userDoc.id, 0);
           nodes = [
             {
               id: 0,
@@ -131,6 +133,9 @@ export default function DrawNetwork() {
               image: DIR + 'usericon1.png',
               label: uuId,
               title:
+                'uuid: ' +
+                userDoc.id +
+                '\n' +
                 '出身:' +
                 userDoc.get('Attribute').Place_born[1] +
                 '\n' +
@@ -145,6 +150,7 @@ export default function DrawNetwork() {
                 '\n',
             },
           ];
+          //cnt++;
         } else {
           console.log('No such document!');
         }
@@ -161,27 +167,29 @@ export default function DrawNetwork() {
             }
 
             let tokensMap = tokenSettingsDocSnapshot.data().match_user_info;
-            console.log(12);
-            console.log(tokensMap);
-            Object.keys(tokensMap).forEach((e) => {
-              console.log(e, tokensMap[e]);
 
+            Object.keys(tokensMap).forEach((e) => {
+              used_user.add(e);
+              map_user_node.set(e, cnt);
               nodes.push({
-                id: nodes.length + 1,
+                id: cnt,
                 value: 30,
                 shape: 'circularImage',
                 image: DIR + 'usericon1.png',
                 label: e,
                 title: e,
               });
-              var edge_title = '';
+              cnt++;
+
+              var edge_title =
+                uuId + '-' + e + '\n 繋がりの強さ: ' + tokensMap[e].length + '\n 共通点:  \n';
               tokensMap[e].forEach((x) => {
-                edge_title += x + '\n';
+                edge_title += '　　　　　' + x + '\n';
               });
               edges.push({
-                from: 0,
-                to: nodes.length,
-                value: tokensMap[e].length,
+                from: map_user_node.get(uuId),
+                to: map_user_node.get(e),
+                value: tokensMap[e].length * 0.5,
                 title: edge_title,
               });
             });
@@ -189,8 +197,173 @@ export default function DrawNetwork() {
         })
           .then(function () {
             console.log(1111);
-            console.log(edges);
             draw();
+          })
+          .catch((error) => {
+            console.log('Transaction failed: ', error);
+          });
+      } catch (err) {
+        console.log(`Error!: ${JSON.stringify(err)}`);
+      }
+    })();
+  };
+
+  const handleOnClick_draw_network_2 = async () => {
+    const head = document.getElementsByTagName('head')[0] as HTMLElement;
+    const scriptUrl = document.createElement('script');
+    scriptUrl.type = 'text/javascript';
+    scriptUrl.src = 'https://unpkg.com/vis-network/standalone/umd/vis-network.min.js';
+    head.appendChild(scriptUrl);
+
+    nodes = [];
+    edges = [];
+    var used_user = new Set();
+    var cnt = 1;
+    var map_user_node = new Map<string, number>();
+
+    (async () => {
+      try {
+        const userRef = db.collection('user_info_sample').doc(uuId);
+        const userDoc = await userRef.get();
+        if (userDoc.exists) {
+          //console.log(userDoc.data());
+          used_user.add(userDoc.id);
+          map_user_node.set(userDoc.id, 0);
+          nodes = [
+            {
+              id: 0,
+              value: 80,
+              shape: 'circularImage',
+              image: DIR + 'usericon1.png',
+              label: uuId,
+              title:
+                'uuid: ' +
+                userDoc.id +
+                '\n' +
+                '出身:' +
+                userDoc.get('Attribute').Place_born[1] +
+                '\n' +
+                '居住地:' +
+                userDoc.get('Attribute').Place_Live[1] +
+                '\n' +
+                '趣味:' +
+                userDoc.get('Attribute').Hobby +
+                '\n' +
+                '一言:' +
+                userDoc.get('Sentence') +
+                '\n',
+            },
+          ];
+          //cnt++;
+        } else {
+          console.log('No such document!');
+        }
+      } catch (err) {
+        console.log(`Error!: ${JSON.stringify(err)}`);
+      }
+
+      async function add_second_node() {
+        var used_user2 = new Set();
+        var cn = cnt + 1;
+        async function search_next_node(name: string, ff: number) {
+          try {
+            const userRef = db.collection('match_user_sample').doc(name);
+            db.runTransaction((transaction) => {
+              return transaction.get(userRef).then((tokenSettingsDocSnapshot) => {
+                if (!tokenSettingsDocSnapshot.exists) {
+                  throw 'Document does not exist!';
+                }
+
+                let tokensMap = tokenSettingsDocSnapshot.data().match_user_info;
+
+                Object.keys(tokensMap).forEach((e) => {
+                  if (!used_user.has(e) && !used_user2.has(e)) {
+                    used_user2.add(e);
+                    map_user_node.set(e, cn);
+                    nodes.push({
+                      id: cn,
+                      value: 30,
+                      shape: 'circularImage',
+                      image: DIR + 'usericon1.png',
+                      label: e,
+                      title: e,
+                    });
+                    cn++;
+
+                    var edge_title =
+                      name + '-' + e + '\n 繋がりの強さ: ' + tokensMap[e].length + '\n 共通点:  \n';
+                    tokensMap[e].forEach((x) => {
+                      edge_title += '　　　　　' + x + '\n';
+                    });
+                    edges.push({
+                      from: map_user_node.get(name),
+                      to: map_user_node.get(e),
+                      value: tokensMap[e].length * 0.5,
+                      title: edge_title,
+                    });
+                  }
+                });
+              });
+            })
+              .then(function () {
+                if (ff == cnt - 1) {
+                  console.log('finish');
+                  draw();
+                }
+              })
+              .catch((error) => {
+                console.log('Transaction failed: ', error);
+              });
+          } catch (err) {
+            console.log(`Error!: ${JSON.stringify(err)}`);
+          }
+        }
+        for (var i = 0; i < cnt; i++) {
+          //console.log(i)
+          await search_next_node(nodes[i].label, i);
+        }
+      }
+
+      try {
+        const userRef = db.collection('match_user_sample').doc(uuId);
+        db.runTransaction((transaction) => {
+          return transaction.get(userRef).then((tokenSettingsDocSnapshot) => {
+            if (!tokenSettingsDocSnapshot.exists) {
+              throw 'Document does not exist!';
+            }
+
+            let tokensMap = tokenSettingsDocSnapshot.data().match_user_info;
+
+            Object.keys(tokensMap).forEach((e) => {
+              used_user.add(e);
+              map_user_node.set(e, cnt);
+              nodes.push({
+                id: cnt,
+                value: 30,
+                shape: 'circularImage',
+                image: DIR + 'usericon1.png',
+                label: e,
+                title: e,
+              });
+              cnt++;
+
+              var edge_title =
+                uuId + '-' + e + '\n 繋がりの強さ: ' + tokensMap[e].length + '\n 共通点:  \n';
+              tokensMap[e].forEach((x) => {
+                edge_title += '　　　　　' + x + '\n';
+              });
+              edges.push({
+                from: map_user_node.get(uuId),
+                to: map_user_node.get(e),
+                value: tokensMap[e].length * 0.5,
+                title: edge_title,
+              });
+            });
+          });
+        })
+          .then(function () {
+            console.log(1111);
+            add_second_node();
           })
           .catch((error) => {
             console.log('Transaction failed: ', error);
@@ -500,6 +673,16 @@ export default function DrawNetwork() {
           }}
         >
           グラフ描画 star
+        </button>
+
+        <button
+          type="button"
+          className="z-[10] inline-block py-2.5 px-6 text-xs font-medium leading-tight text-gray-900 bg-gray-100 thover:bg-gray-300 focus:bg-gray-300 active:bg-gray-400 rounded-full border-2 focus:outline-none focus:ring-0 shadow-md hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out border-gray-10 hover:scale-110 m-5"
+          onClick={() => {
+            handleOnClick_draw_network_2();
+          }}
+        >
+          グラフ描画 star2
         </button>
 
         <button

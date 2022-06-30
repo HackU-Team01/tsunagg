@@ -10,6 +10,10 @@ let Recommend_channel_len: Array = null;
 let Recommend_user: Array = null;
 let Recommend_user_atribute: Array = null;
 
+function handleOnClick_join_channel(e) {
+  console.log(uuId, e.currentTarget['name']);
+}
+
 export default function Recommend() {
   const handleOnClick_check_firebase = async () => {
     Recommend_channel = [];
@@ -81,7 +85,7 @@ export default function Recommend() {
 
         var target = document.getElementById('recommend_channel_table');
         while (target.firstChild) {
-          console.log(2);
+          //console.log(2);
           target.removeChild(target.firstChild);
         }
         for (var i = 0; i < Recommend_channel.length; i++) {
@@ -102,12 +106,19 @@ export default function Recommend() {
 
           newChild = document.createElement('td');
           newChild.className = 'px-6 py-4  font-medium text-gray-900 whitespace-nowrap';
-          var nweChildChild = document.createElement('a');
-          nweChildChild.className =
+          var newChildChild = document.createElement('button');
+          newChildChild.className =
             'text-red-300 transition duration-150 hover:scale-110 hover:text-red-600';
-          nweChildChild.href = '#';
-          nweChildChild.appendChild(document.createTextNode('参加する'));
-          newChild.appendChild(nweChildChild);
+          //newChildChild.href = "handleOnClick_join_channel();"
+          //newChildChild.type = "button"
+          //newChildChild.onclick = {() => {handleOnClick_join_channel();}};
+          //newChildChild.onclick=handleOnClick_join_channel;
+          //newChildChild.setAttribute('onclick', handleOnClick_join_channel());
+          newChildChild.addEventListener('click', handleOnClick_join_channel);
+          //newChildChild.data-id="foo"
+          newChildChild.name = Recommend_channel[i];
+          newChildChild.appendChild(document.createTextNode('参加する'));
+          newChild.appendChild(newChildChild);
           newContent.appendChild(newChild);
           newElement.appendChild(newContent);
 
