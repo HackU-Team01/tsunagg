@@ -22,7 +22,7 @@ func NewSlackBotClient(options ...slack.Option) (*slack.Client, error) {
 }
 
 func NewSlackUserClient(ctx context.Context, c *firestore.Client, uuid string, options ...slack.Option) (*slack.Client, error) {
-	dsnap, err := c.Collection("users").Doc(uuid).Get(ctx)
+	dsnap, err := c.Collection("user_sample").Doc(uuid).Get(ctx)
 	if err != nil {
 		return nil, err
 	}

@@ -27,7 +27,7 @@ func JoinChannelHandler(c *firestore.Client) http.HandlerFunc {
 		// リクエスト カスタムヘッダに付与されているuuidを取得
 		uuid := j.Data.Authorization
 		// 認証処理．users コレクションに uuid が登録されているかチェック
-		if _, err := c.Collection("users").Doc(uuid).Get(r.Context()); err != nil {
+		if _, err := c.Collection("user_sample").Doc(uuid).Get(r.Context()); err != nil {
 			response.NG(w, response.NotAuthedError)
 			return
 		}
