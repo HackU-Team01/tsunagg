@@ -14,7 +14,7 @@ let Recommend_user_len: Array = null;
 function handleOnClick_join_channel(e) {
   //POST request URL
   //'https://httpbin.org/post'
-  const POST_request_URL = 'https://httpbin.org/post';
+  const POST_request_URL = 'http://localhost:8000/api/joinChannel';
   //{"data":{"Channel":"Twitter_channel","Authorization":"User4KpZPzCR6zJy0KUX"}}
 
   var channel_name = e.currentTarget['name'];
