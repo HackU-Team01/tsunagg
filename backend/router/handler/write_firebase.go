@@ -9,7 +9,6 @@ import (
 
 	"tsunagg/backend/model/db"
 	"tsunagg/backend/model/profile"
-	"tsunagg/backend/model/profile/chat"
 	"tsunagg/backend/router/response"
 )
 
@@ -102,7 +101,7 @@ func WriteFirebaseHandler(c *firestore.Client) http.HandlerFunc {
 
 		// Slack に自己紹介文を投稿
 		// とりあえず投稿するチャンネルは #random にしています
-		if err := chat.SendMessage(r.Context(), c, p, uuid, defaultChannel); err != nil {
+		if err := profile.SendMessage(r.Context(), c, p, uuid, defaultChannel); err != nil {
 			response.NG(w, response.SlackError)
 			return
 		}
