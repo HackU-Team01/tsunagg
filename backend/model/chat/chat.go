@@ -39,3 +39,18 @@ func NewSlackUserClient(ctx context.Context, c *firestore.Client, uuid string, o
 
 	return slack.New(tokenStr, options...), nil
 }
+
+// チャンネルを作成してそのIDを返す
+func CreateChannel(channelName string) (string, error) {
+	api, err := NewSlackBotClient()
+	if err != nil {
+		return "", err
+	}
+
+	ch, err := api.CreateConversation(channelName, false)
+	if err != nil {
+		return "", err
+	}
+
+	return ch.ID, nil
+}
