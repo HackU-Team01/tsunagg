@@ -10,7 +10,7 @@ const Home: NextPage = () => {
   return (
     <Layout path="/" title="タイトル" noTitleTemplate={true} isTopPage={true}>
       <div className="w-screen h-screen bg-white font-family-karla">
-        <div className="grid grid-cols-6 gap-2 m-5">
+        <div className="grid grid-cols-6 gap-1 m-3">
           <div className="col-span-2 col-start-1 m-4 h-screen">
             <div className="m-1">
               <Recommend />

@@ -3,24 +3,24 @@ export default function Hobby() {
     const button_col = document.getElementById(id_name);
     if (button_col.checked == true) {
       button_col.className =
-        'inline-block px-6 py-2 border-2 border-red-300 text-red-300 text-sm leading-tight uppercase rounded-full border-red-300  transition duration-150 ease-in-out hover:scale-110 ';
+        'inline-block px-6 py-2 border-2 border-red-300 text-red-300 text-sm leading-tight rounded-full border-red-300  transition duration-150 ease-in-out hover:scale-110 ';
       button_col.checked = false;
     } else {
       button_col.className =
-        'inline-block px-6 py-2 border-2 bg-red-400 text-white text-sm leading-tight uppercase rounded-full border-red-300  transition duration-150 ease-in-out hover:scale-110 ';
+        'inline-block px-6 py-2 border-2 bg-red-400 text-white text-sm leading-tight rounded-full border-red-300  transition duration-150 ease-in-out hover:scale-110 ';
       button_col.checked = true;
     }
     //console.log(button_col.checked);
   };
 
   return (
-    <div className="space-y-1 space-x-2">
+    <div className="space-y-1 space-x-1">
       <button
         value="スポーツ"
         name="hobby"
         id="hobby0"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase checked:bg-red-400 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
           handleOnClick('hobby0');
         }}
@@ -32,7 +32,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby1"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
           handleOnClick('hobby1');
         }}
@@ -44,7 +44,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby2"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
           handleOnClick('hobby2');
         }}
@@ -56,7 +56,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby3"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
           handleOnClick('hobby3');
         }}
@@ -68,7 +68,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby4"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
           handleOnClick('hobby4');
         }}
@@ -80,7 +80,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby5"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
           handleOnClick('hobby5');
         }}
@@ -92,7 +92,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby6"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
           handleOnClick('hobby6');
         }}
@@ -104,7 +104,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby7"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
           handleOnClick('hobby7');
         }}
@@ -116,7 +116,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby8"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
           handleOnClick('hobby8');
         }}
@@ -128,7 +128,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby9"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
           handleOnClick('hobby9');
         }}
@@ -140,7 +140,7 @@ export default function Hobby() {
         name="hobby"
         id="hobby10"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
           handleOnClick('hobby10');
         }}
@@ -148,49 +148,181 @@ export default function Hobby() {
         水泳
       </button>
       <button
-        value="その他"
+        value="ゴルフ"
         name="hobby"
         id="hobby11"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
           handleOnClick('hobby11');
         }}
       >
-        その他
+        ゴルフ
       </button>
       <button
-        value="ライフスタイル"
+        value="ダンス"
         name="hobby"
         id="hobby12"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
           handleOnClick('hobby12');
         }}
       >
-        ライフスタイル
+        ダンス
+      </button>
+      <button
+        value="スキー"
+        name="hobby"
+        id="hobby13"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby13');
+        }}
+      >
+        スキー
+      </button>
+      <button
+        value="スノーボード"
+        name="hobby"
+        id="hobby14"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby14');
+        }}
+      >
+        スノーボード
+      </button>
+      <button
+        value="筋トレ"
+        name="hobby"
+        id="hobby15"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby15');
+        }}
+      >
+        筋トレ
+      </button>
+      <button
+        value="キャンプ"
+        name="hobby"
+        id="hobby16"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby16');
+        }}
+      >
+        キャンプ
+      </button>
+      <button
+        value="バーベキュー"
+        name="hobby"
+        id="hobby17"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby17');
+        }}
+      >
+        バーベキュー
+      </button>
+      <button
+        value="魚釣り"
+        name="hobby"
+        id="hobby18"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby18');
+        }}
+      >
+        魚釣り
+      </button>
+      <button
+        value="アウトドア"
+        name="hobby"
+        id="hobby19"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby19');
+        }}
+      >
+        アウトドア
+      </button>
+      <button
+        value="インドア"
+        name="hobby"
+        id="hobby20"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby20');
+        }}
+      >
+        インドア
       </button>
       <button
         value="サウナ"
         name="hobby"
-        id="hobby13"
+        id="hobby21"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby13');
+          handleOnClick('hobby21');
         }}
       >
         サウナ
       </button>
       <button
+        value="温泉"
+        name="hobby"
+        id="hobby22"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby22');
+        }}
+      >
+        温泉
+      </button>
+      <button
+        value="旅行"
+        name="hobby"
+        id="hobby23"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby23');
+        }}
+      >
+        旅行
+      </button>
+      <button
+        value="海"
+        name="hobby"
+        id="hobby24"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby24');
+        }}
+      >
+        海
+      </button>
+      <button
         value="睡眠"
         name="hobby"
-        id="hobby14"
+        id="hobby25"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby14');
+          handleOnClick('hobby25');
         }}
       >
         睡眠
@@ -198,131 +330,347 @@ export default function Hobby() {
       <button
         value="ドライブ"
         name="hobby"
-        id="hobby15"
+        id="hobby26"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby15');
+          handleOnClick('hobby26');
         }}
       >
         ドライブ
       </button>
       <button
-        value="カフェ巡り"
+        value="カフェ"
         name="hobby"
-        id="hobby16"
+        id="hobby27"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby16');
+          handleOnClick('hobby27');
         }}
       >
-        カフェ巡り
+        カフェ
       </button>
       <button
-        value="美術館"
+        value="コーヒー"
         name="hobby"
-        id="hobby17"
+        id="hobby28"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby17');
+          handleOnClick('hobby28');
         }}
       >
-        美術館
+        コーヒー
       </button>
       <button
-        value="映画"
+        value="ラーメン"
         name="hobby"
-        id="hobby18"
+        id="hobby29"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby18');
+          handleOnClick('hobby29');
         }}
       >
-        映画
+        ラーメン
       </button>
       <button
         value="カラオケ"
         name="hobby"
-        id="hobby19"
+        id="hobby30"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby19');
+          handleOnClick('hobby30');
         }}
       >
         カラオケ
       </button>
       <button
-        value="ダンス"
+        value="お酒"
         name="hobby"
-        id="hobby20"
+        id="hobby31"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby20');
+          handleOnClick('hobby31');
         }}
       >
-        ダンス
+        お酒
+      </button>
+      <button
+        value="ピアノ"
+        name="hobby"
+        id="hobby32"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby32');
+        }}
+      >
+        ピアノ
+      </button>
+      <button
+        value="ギター"
+        name="hobby"
+        id="hobby33"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby33');
+        }}
+      >
+        ギター
+      </button>
+      <button
+        value="カメラ"
+        name="hobby"
+        id="hobby34"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby34');
+        }}
+      >
+        カメラ
+      </button>
+      <button
+        value="読書"
+        name="hobby"
+        id="hobby35"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby35');
+        }}
+      >
+        読書
+      </button>
+      <button
+        value="花火"
+        name="hobby"
+        id="hobby36"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby36');
+        }}
+      >
+        花火
+      </button>
+      <button
+        value="動物"
+        name="hobby"
+        id="hobby37"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby37');
+        }}
+      >
+        動物
+      </button>
+      <button
+        value="猫"
+        name="hobby"
+        id="hobby38"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby38');
+        }}
+      >
+        猫
+      </button>
+      <button
+        value="犬"
+        name="hobby"
+        id="hobby39"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby39');
+        }}
+      >
+        犬
+      </button>
+      <button
+        value="洋服"
+        name="hobby"
+        id="hobby40"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby40');
+        }}
+      >
+        洋服
+      </button>
+      <button
+        value="美術館"
+        name="hobby"
+        id="hobby41"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby41');
+        }}
+      >
+        美術館
       </button>
       <button
         value="舞台"
         name="hobby"
-        id="hobby21"
+        id="hobby42"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby21');
+          handleOnClick('hobby42');
         }}
       >
         舞台
       </button>
       <button
+        value="映画"
+        name="hobby"
+        id="hobby43"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby43');
+        }}
+      >
+        映画
+      </button>
+      <button
+        value="動画"
+        name="hobby"
+        id="hobby44"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby44');
+        }}
+      >
+        動画
+      </button>
+      <button
+        value="ドラマ"
+        name="hobby"
+        id="hobby45"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby45');
+        }}
+      >
+        ドラマ
+      </button>
+      <button
+        value="Youtube"
+        name="hobby"
+        id="hobby46"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby46');
+        }}
+      >
+        Youtube
+      </button>
+      <button
         value="Netflix"
         name="hobby"
-        id="hobby22"
+        id="hobby47"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby22');
+          handleOnClick('hobby47');
         }}
       >
         Netflix
       </button>
       <button
-        value="飲み"
+        value="ダーツ"
         name="hobby"
-        id="hobby23"
+        id="hobby48"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby23');
+          handleOnClick('hobby48');
         }}
       >
-        飲み
+        ダーツ
       </button>
       <button
-        value="旅行"
+        value="ボードゲーム"
         name="hobby"
-        id="hobby24"
+        id="hobby49"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby24');
+          handleOnClick('hobby49');
         }}
       >
-        旅行
+        ボードゲーム
+      </button>
+      <button
+        value="ポーカー"
+        name="hobby"
+        id="hobby50"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby50');
+        }}
+      >
+        ポーカー
+      </button>
+      <button
+        value="麻雀"
+        name="hobby"
+        id="hobby51"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby51');
+        }}
+      >
+        麻雀
+      </button>
+      <button
+        value="将棋"
+        name="hobby"
+        id="hobby52"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby52');
+        }}
+      >
+        将棋
+      </button>
+      <button
+        value="チェス"
+        name="hobby"
+        id="hobby53"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby53');
+        }}
+      >
+        チェス
       </button>
       <button
         value="ゲーム"
         name="hobby"
-        id="hobby25"
+        id="hobby54"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby25');
+          handleOnClick('hobby54');
         }}
       >
         ゲーム
@@ -330,11 +678,11 @@ export default function Hobby() {
       <button
         value="モンハン"
         name="hobby"
-        id="hobby26"
+        id="hobby55"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby26');
+          handleOnClick('hobby55');
         }}
       >
         モンハン
@@ -342,11 +690,11 @@ export default function Hobby() {
       <button
         value="スプラトゥーン"
         name="hobby"
-        id="hobby27"
+        id="hobby56"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby27');
+          handleOnClick('hobby56');
         }}
       >
         スプラトゥーン
@@ -354,11 +702,11 @@ export default function Hobby() {
       <button
         value="ポケモン"
         name="hobby"
-        id="hobby28"
+        id="hobby57"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby28');
+          handleOnClick('hobby57');
         }}
       >
         ポケモン
@@ -366,11 +714,11 @@ export default function Hobby() {
       <button
         value="マリオ"
         name="hobby"
-        id="hobby29"
+        id="hobby58"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby29');
+          handleOnClick('hobby58');
         }}
       >
         マリオ
@@ -378,11 +726,11 @@ export default function Hobby() {
       <button
         value="フォートナイト"
         name="hobby"
-        id="hobby30"
+        id="hobby59"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby30');
+          handleOnClick('hobby59');
         }}
       >
         フォートナイト
@@ -390,11 +738,11 @@ export default function Hobby() {
       <button
         value="Apex"
         name="hobby"
-        id="hobby31"
+        id="hobby60"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby31');
+          handleOnClick('hobby60');
         }}
       >
         Apex
@@ -402,11 +750,11 @@ export default function Hobby() {
       <button
         value="スマブラ"
         name="hobby"
-        id="hobby32"
+        id="hobby61"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby32');
+          handleOnClick('hobby61');
         }}
       >
         スマブラ
@@ -414,203 +762,335 @@ export default function Hobby() {
       <button
         value="ドラクエ"
         name="hobby"
-        id="hobby33"
+        id="hobby62"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby33');
+          handleOnClick('hobby62');
         }}
       >
         ドラクエ
       </button>
       <button
+        value="マインクラフト"
+        name="hobby"
+        id="hobby63"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby63');
+        }}
+      >
+        マインクラフト
+      </button>
+      <button
         value="FF"
         name="hobby"
-        id="hobby34"
+        id="hobby64"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby34');
+          handleOnClick('hobby64');
         }}
       >
         FF
       </button>
       <button
-        value="キングダムハーツ"
+        value="バイオ"
         name="hobby"
-        id="hobby35"
+        id="hobby65"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby35');
+          handleOnClick('hobby65');
         }}
       >
-        キングダムハーツ
-      </button>
-      <button
-        value="ELDENRING"
-        name="hobby"
-        id="hobby36"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby36');
-        }}
-      >
-        ELDENRING
-      </button>
-      <button
-        value="龍が如く"
-        name="hobby"
-        id="hobby37"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby37');
-        }}
-      >
-        龍が如く
+        バイオ
       </button>
       <button
         value="アニメ"
         name="hobby"
-        id="hobby38"
+        id="hobby66"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby38');
+          handleOnClick('hobby66');
         }}
       >
         アニメ
       </button>
       <button
-        value="コードギアス"
-        name="hobby"
-        id="hobby39"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby39');
-        }}
-      >
-        コードギアス
-      </button>
-      <button
-        value="STEINS;GATE"
-        name="hobby"
-        id="hobby40"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby40');
-        }}
-      >
-        STEINS;GATE
-      </button>
-      <button
         value="進撃の巨人"
         name="hobby"
-        id="hobby41"
+        id="hobby67"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby41');
+          handleOnClick('hobby67');
         }}
       >
         進撃の巨人
       </button>
       <button
-        value="ヴァイオレットエヴァーガーデン"
+        value="呪術廻戦"
         name="hobby"
-        id="hobby42"
+        id="hobby68"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby42');
+          handleOnClick('hobby68');
         }}
       >
-        ヴァイオレットエヴァーガーデン
+        呪術廻戦
       </button>
       <button
-        value="銀魂"
+        value="Re:ゼロ"
         name="hobby"
-        id="hobby43"
+        id="hobby69"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby43');
+          handleOnClick('hobby69');
         }}
       >
-        銀魂
+        Re:ゼロ
+      </button>
+      <button
+        value="このすば"
+        name="hobby"
+        id="hobby70"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby70');
+        }}
+      >
+        このすば
+      </button>
+      <button
+        value="無職転生"
+        name="hobby"
+        id="hobby71"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby71');
+        }}
+      >
+        無職転生
+      </button>
+      <button
+        value="五等分の花嫁"
+        name="hobby"
+        id="hobby72"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby72');
+        }}
+      >
+        五等分の花嫁
+      </button>
+      <button
+        value="転スラ"
+        name="hobby"
+        id="hobby73"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby73');
+        }}
+      >
+        転スラ
+      </button>
+      <button
+        value="スパイファミリー"
+        name="hobby"
+        id="hobby74"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby74');
+        }}
+      >
+        スパイファミリー
+      </button>
+      <button
+        value="トーキョーグール"
+        name="hobby"
+        id="hobby75"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby75');
+        }}
+      >
+        トーキョーグール
+      </button>
+      <button
+        value="サマーウォーズ"
+        name="hobby"
+        id="hobby76"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby76');
+        }}
+      >
+        サマーウォーズ
+      </button>
+      <button
+        value="天気の子"
+        name="hobby"
+        id="hobby77"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby77');
+        }}
+      >
+        天気の子
+      </button>
+      <button
+        value="君の名は"
+        name="hobby"
+        id="hobby78"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby78');
+        }}
+      >
+        君の名は
+      </button>
+      <button
+        value="コナン"
+        name="hobby"
+        id="hobby79"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby79');
+        }}
+      >
+        コナン
+      </button>
+      <button
+        value="暗殺教室"
+        name="hobby"
+        id="hobby80"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby80');
+        }}
+      >
+        暗殺教室
+      </button>
+      <button
+        value="ジョジョ"
+        name="hobby"
+        id="hobby81"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby81');
+        }}
+      >
+        ジョジョ
+      </button>
+      <button
+        value="鬼滅"
+        name="hobby"
+        id="hobby82"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby82');
+        }}
+      >
+        鬼滅
+      </button>
+      <button
+        value="ゆるキャン"
+        name="hobby"
+        id="hobby83"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby83');
+        }}
+      >
+        ゆるキャン
+      </button>
+      <button
+        value="バァイオレット・エバァーガーデン"
+        name="hobby"
+        id="hobby84"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby84');
+        }}
+      >
+        バァイオレット・エバァーガーデン
+      </button>
+      <button
+        value="ソードアート・オンライン"
+        name="hobby"
+        id="hobby85"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby85');
+        }}
+      >
+        ソードアート・オンライン
       </button>
       <button
         value="ハイキュー"
         name="hobby"
-        id="hobby44"
+        id="hobby86"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby44');
+          handleOnClick('hobby86');
         }}
       >
         ハイキュー
       </button>
       <button
-        value="魔法少女まどか★マギカ"
-        name="hobby"
-        id="hobby45"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby45');
-        }}
-      >
-        魔法少女まどか★マギカ
-      </button>
-      <button
-        value="宇宙よりも遠い場所"
-        name="hobby"
-        id="hobby46"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby46');
-        }}
-      >
-        宇宙よりも遠い場所
-      </button>
-      <button
-        value="僕のヒーローアカデミア"
-        name="hobby"
-        id="hobby47"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby47');
-        }}
-      >
-        僕のヒーローアカデミア
-      </button>
-      <button
         value="エヴァンゲリオン"
         name="hobby"
-        id="hobby48"
+        id="hobby87"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby48');
+          handleOnClick('hobby87');
         }}
       >
         エヴァンゲリオン
       </button>
       <button
+        value="漫画"
+        name="hobby"
+        id="hobby88"
+        type="button"
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
+        onClick={() => {
+          handleOnClick('hobby88');
+        }}
+      >
+        漫画
+      </button>
+      <button
         value="音楽"
         name="hobby"
-        id="hobby49"
+        id="hobby89"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby49');
+          handleOnClick('hobby89');
         }}
       >
         音楽
@@ -618,527 +1098,143 @@ export default function Hobby() {
       <button
         value="JPOP"
         name="hobby"
-        id="hobby50"
+        id="hobby90"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby50');
+          handleOnClick('hobby90');
         }}
       >
         JPOP
       </button>
       <button
-        value="SEKAINOOWARI"
-        name="hobby"
-        id="hobby51"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby51');
-        }}
-      >
-        SEKAINOOWARI
-      </button>
-      <button
-        value="Official髭男dism"
-        name="hobby"
-        id="hobby52"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby52');
-        }}
-      >
-        Official髭男dism
-      </button>
-      <button
-        value="TaniYuuki"
-        name="hobby"
-        id="hobby53"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby53');
-        }}
-      >
-        TaniYuuki
-      </button>
-      <button
-        value="マカロニえんぴつ"
-        name="hobby"
-        id="hobby54"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby54');
-        }}
-      >
-        マカロニえんぴつ
-      </button>
-      <button
-        value="Ado"
-        name="hobby"
-        id="hobby55"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby55');
-        }}
-      >
-        Ado
-      </button>
-      <button
-        value="Uru"
-        name="hobby"
-        id="hobby56"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby56');
-        }}
-      >
-        Uru
-      </button>
-      <button
-        value="Aimer"
-        name="hobby"
-        id="hobby57"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby57');
-        }}
-      >
-        Aimer
-      </button>
-      <button
-        value="backnumber"
-        name="hobby"
-        id="hobby58"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby58');
-        }}
-      >
-        backnumber
-      </button>
-      <button
-        value="米津玄師"
-        name="hobby"
-        id="hobby59"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby59');
-        }}
-      >
-        米津玄師
-      </button>
-      <button
-        value="YOASOBI"
-        name="hobby"
-        id="hobby60"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby60');
-        }}
-      >
-        YOASOBI
-      </button>
-      <button
-        value="アニメ"
-        name="hobby"
-        id="hobby61"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby61');
-        }}
-      >
-        アニメ
-      </button>
-      <button
-        value="Lisa"
-        name="hobby"
-        id="hobby62"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby62');
-        }}
-      >
-        Lisa
-      </button>
-      <button
-        value="QUEENDOM"
-        name="hobby"
-        id="hobby63"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby63');
-        }}
-      >
-        QUEENDOM
-      </button>
-      <button
-        value="Chinozo"
-        name="hobby"
-        id="hobby64"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby64');
-        }}
-      >
-        Chinozo
-      </button>
-      <button
-        value="DECO*27"
-        name="hobby"
-        id="hobby65"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby65');
-        }}
-      >
-        DECO*27
-      </button>
-      <button
-        value="fripSide"
-        name="hobby"
-        id="hobby66"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby66');
-        }}
-      >
-        fripSide
-      </button>
-      <button
-        value="supercell"
-        name="hobby"
-        id="hobby67"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby67');
-        }}
-      >
-        supercell
-      </button>
-      <button
         value="K-pop"
         name="hobby"
-        id="hobby68"
+        id="hobby91"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby68');
+          handleOnClick('hobby91');
         }}
       >
         K-pop
       </button>
       <button
-        value="BTS"
-        name="hobby"
-        id="hobby69"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby69');
-        }}
-      >
-        BTS
-      </button>
-      <button
-        value="IVE"
-        name="hobby"
-        id="hobby70"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby70');
-        }}
-      >
-        IVE
-      </button>
-      <button
-        value="LE"
-        name="hobby"
-        id="hobby71"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby71');
-        }}
-      >
-        LE
-      </button>
-      <button
-        value="SSERAFIM"
-        name="hobby"
-        id="hobby72"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby72');
-        }}
-      >
-        SSERAFIM
-      </button>
-      <button
-        value="TWICE"
-        name="hobby"
-        id="hobby73"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby73');
-        }}
-      >
-        TWICE
-      </button>
-      <button
-        value="PSY"
-        name="hobby"
-        id="hobby74"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby74');
-        }}
-      >
-        PSY
-      </button>
-      <button
         value="HipHop"
         name="hobby"
-        id="hobby75"
+        id="hobby92"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby75');
+          handleOnClick('hobby92');
         }}
       >
         HipHop
       </button>
       <button
-        value="CreepyNuts"
+        value="プログラミング"
         name="hobby"
-        id="hobby76"
+        id="hobby93"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby76');
+          handleOnClick('hobby93');
         }}
       >
-        CreepyNuts
+        プログラミング
       </button>
       <button
-        value="ちゃんみな"
+        value="Web"
         name="hobby"
-        id="hobby77"
+        id="hobby94"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby77');
+          handleOnClick('hobby94');
         }}
       >
-        ちゃんみな
+        Web
       </button>
       <button
-        value="Awich"
+        value="モバイル"
         name="hobby"
-        id="hobby78"
+        id="hobby95"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby78');
+          handleOnClick('hobby95');
         }}
       >
-        Awich
+        モバイル
       </button>
       <button
-        value="WILYWNKA"
+        value="IOS"
         name="hobby"
-        id="hobby79"
+        id="hobby96"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby79');
+          handleOnClick('hobby96');
         }}
       >
-        WILYWNKA
+        IOS
       </button>
       <button
-        value="VaVa"
+        value="Android"
         name="hobby"
-        id="hobby80"
+        id="hobby97"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300  rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby80');
+          handleOnClick('hobby97');
         }}
       >
-        VaVa
+        Android
       </button>
       <button
-        value="Tohji"
+        value="競プロ"
         name="hobby"
-        id="hobby81"
+        id="hobby98"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby81');
+          handleOnClick('hobby98');
         }}
       >
-        Tohji
+        競プロ
       </button>
       <button
-        value="¥ellow"
+        value="Kaggle"
         name="hobby"
-        id="hobby82"
+        id="hobby99"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby82');
+          handleOnClick('hobby99');
         }}
       >
-        ¥ellow
+        Kaggle
       </button>
       <button
-        value="Bucks"
+        value="AI"
         name="hobby"
-        id="hobby83"
+        id="hobby100"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby83');
+          handleOnClick('hobby100');
         }}
       >
-        Bucks
-      </button>
-      <button
-        value="ROCK"
-        name="hobby"
-        id="hobby84"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby84');
-        }}
-      >
-        ROCK
-      </button>
-      <button
-        value="SaucyDog"
-        name="hobby"
-        id="hobby85"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby85');
-        }}
-      >
-        SaucyDog
-      </button>
-      <button
-        value="優理"
-        name="hobby"
-        id="hobby86"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby86');
-        }}
-      >
-        優理
-      </button>
-      <button
-        value="Novelbright"
-        name="hobby"
-        id="hobby87"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby87');
-        }}
-      >
-        Novelbright
-      </button>
-      <button
-        value="Mrs.GREENAPPLE"
-        name="hobby"
-        id="hobby88"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby88');
-        }}
-      >
-        Mrs.GREENAPPLE
-      </button>
-      <button
-        value="VAUNDY"
-        name="hobby"
-        id="hobby89"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby89');
-        }}
-      >
-        VAUNDY
-      </button>
-      <button
-        value="ONEOKROCK"
-        name="hobby"
-        id="hobby90"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby90');
-        }}
-      >
-        ONEOKROCK
-      </button>
-      <button
-        value="UVERWORLD"
-        name="hobby"
-        id="hobby91"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby91');
-        }}
-      >
-        UVERWORLD
-      </button>
-      <button
-        value="MyHairisBad"
-        name="hobby"
-        id="hobby92"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby92');
-        }}
-      >
-        MyHairisBad
+        AI
       </button>
       <button
         value="SNS"
         name="hobby"
-        id="hobby93"
+        id="hobby101"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby93');
+          handleOnClick('hobby101');
         }}
       >
         SNS
@@ -1146,11 +1242,11 @@ export default function Hobby() {
       <button
         value="Facebook"
         name="hobby"
-        id="hobby94"
+        id="hobby102"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby94');
+          handleOnClick('hobby102');
         }}
       >
         Facebook
@@ -1158,11 +1254,11 @@ export default function Hobby() {
       <button
         value="Twitter"
         name="hobby"
-        id="hobby95"
+        id="hobby103"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby95');
+          handleOnClick('hobby103');
         }}
       >
         Twitter
@@ -1170,11 +1266,11 @@ export default function Hobby() {
       <button
         value="LINE"
         name="hobby"
-        id="hobby96"
+        id="hobby104"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby96');
+          handleOnClick('hobby104');
         }}
       >
         LINE
@@ -1182,147 +1278,15 @@ export default function Hobby() {
       <button
         value="Instagram"
         name="hobby"
-        id="hobby97"
+        id="hobby105"
         type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
+        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110"
         onClick={() => {
-          handleOnClick('hobby97');
+          handleOnClick('hobby105');
         }}
       >
         Instagram
       </button>
-      <button
-        value="友達募集"
-        name="hobby"
-        id="hobby98"
-        type="button"
-        className="inline-block py-2 px-6 text-sm leading-tight text-red-300 uppercase rounded-full border-2 border-red-300 transition duration-150 ease-in-out hover:scale-110 "
-        onClick={() => {
-          handleOnClick('hobby98');
-        }}
-      >
-        友達募集
-      </button>
     </div>
   );
 }
-
-/*
-<button  value="野球" name="hobby" id="hobby0" type="button" className="inline-block px-6 py-2 border-2 border-red-300 text-red-300 text-sm leading-tight uppercase rounded-full" onClick={() => {handleOnClick("hobby0");}}>野球</button>
-                
-                <button  value="サッカー" name="hobby" id="hobby1" type="button" className="inline-block px-6 py-2 border-2 border-red-300 text-red-300 text-sm leading-tight uppercase rounded-full" onClick={() => {handleOnClick("hobby1");}}>サッカー</button>
-                
-                <button  value="テニス" name="hobby" id="hobby2" type="button" className="inline-block px-6 py-2 border-2 border-red-300 text-red-300 text-sm leading-tight uppercase rounded-full" onClick={() => {handleOnClick("hobby2");}}>テニス</button>
-
-                <button  value="バスケ" name="hobby" id="hobby3" type="button" className="inline-block px-6 py-2 border-2 border-red-300 text-red-300 text-sm leading-tight uppercase rounded-full" onClick={() => {handleOnClick("hobby3");}}>バスケ</button> 
-                
-                <button  value="サウナ" name="hobby" id="hobby4" type="button" className="inline-block px-6 py-2 border-2 border-red-300 text-red-300 text-sm leading-tight uppercase rounded-full" onClick={() => {handleOnClick("hobby4");}}>サウナ</button>
-                
-                <button  value="睡眠" name="hobby" id="hobby5" type="button" className="inline-block px-6 py-2 border-2 border-red-300 text-red-300 text-sm leading-tight uppercase rounded-full" onClick={() => {handleOnClick("hobby5");}}>睡眠</button>
-                
-                <button  value="ドライブ" name="hobby" id="hobby6" type="button" className="inline-block px-6 py-2 border-2 border-red-300 text-red-300 text-sm leading-tight uppercase rounded-full" onClick={() => {handleOnClick("hobby6");}}>ドライブ</button>
-
-                <button  value="カフェ巡り" name="hobby" id="hobby7" type="button" className="inline-block px-6 py-2 border-2 border-red-300 text-red-300 text-sm leading-tight uppercase rounded-full" onClick={() => {handleOnClick("hobby7");}}>カフェ巡り</button> 
-
-
-スポーツ 
-野球
-サッカー
-卓球
-バレーボール
-バドミントン
-陸上
-バスケットボール
-テニス
-ラグビー
-水泳
-その他
-ライフスタイル
-サウナ
-睡眠
-ドライブ
-カフェ巡り
-美術館
-映画
-カラオケ
-ダンス
-舞台
-Netflix
-飲み
-旅行
-ゲーム 
-モンハン
-スプラトゥーン
-ポケモン
-マリオ
-フォートナイト
-Apex
-スマブラ
-ドラクエ
-FF
-キングダムハーツ
-ELDENRING
-龍が如く
-アニメ
-コードギアス
-STEINS;GATE
-進撃の巨人
-ヴァイオレットエヴァーガーデン
-銀魂
-ハイキュー
-魔法少女まどか★マギカ
-宇宙よりも遠い場所
-僕のヒーローアカデミア
-エヴァンゲリオン
-音楽
-JPOP
-SEKAINOOWARI
-Official髭男dism
-TaniYuuki
-マカロニえんぴつ
-Ado
-Uru
-Aimer
-backnumber
-米津玄師
-YOASOBI
-アニメ
-Lisa
-QUEENDOM
-Chinozo
-DECO*27
-fripSide
-supercell
-K-pop
-BTS
-IVE
-LE SSERAFIM
-TWICE
-PSY
-HipHop
-CreepyNuts
-ちゃんみな
-Awich
-WILYWNKA
-VaVa
-Tohji
-¥ellow Bucks
-ROCK
-SaucyDog
-優理
-Novelbright
-Mrs.GREENAPPLE
-VAUNDY
-ONEOKROCK
-UVERWORLD
-MyHairisBad
-SNS
-Facebook
-Twitter
-LINE
-Instagram 
-友達募集
-趣味仲間募集
-仕事仲間募集
-意見交換
-*/

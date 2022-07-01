@@ -2,6 +2,7 @@ import axios from 'axios';
 
 import { db } from '../../lib/firebase';
 import Form_hobby from './Form_hobby';
+import Form_friend_type from './Form_friend_type';
 import Form_place_option, { map_place } from './Form_place';
 
 //POST request URL
@@ -43,18 +44,31 @@ export default function Input_Form() {
           for (let i = 0; i < hobby_checkbox.length; i++) {
             hobby_checkbox[i].checked = false;
             hobby_checkbox[i].className =
-              'inline-block px-6 py-2 border-2 border-red-300 text-red-300 text-sm leading-tight uppercase rounded-full border-red-300  transition duration-150 ease-in-out hover:scale-110 ';
+              'inline-block px-6 py-2 border-2 border-red-300 text-red-300 text-sm leading-tight rounded-full border-red-300  transition duration-150 ease-in-out hover:scale-110 ';
             for (let j = 0; j < hobby_data.length; j++) {
               if (hobby_checkbox[i].value == hobby_data[j]) {
                 hobby_checkbox[i].checked = true;
                 hobby_checkbox[i].className =
-                  'inline-block px-6 py-2 border-2 bg-red-400 text-white text-sm leading-tight uppercase rounded-full border-red-300';
+                  'inline-block px-6 py-2 border-2 bg-red-400 text-white text-sm leading-tight rounded-full border-red-300';
               }
             }
           }
         } else {
           console.log('No such document!');
         }
+
+        userRef = db.collection('user_sample').doc(uuId);
+        userDoc = await userRef.get();
+        if (userDoc.exists) {
+          //console.log('doc.id:', userDoc.id);
+          //console.log(userDoc.data());
+
+          let elem = document.getElementById('Name_input_form');
+          elem.value = userDoc.get('Name');
+        } else {
+          console.log('No such document!');
+        }
+
         //await db.app.delete()
       } catch (err) {
         console.log(`Error!: ${JSON.stringify(err)}`);
@@ -70,7 +84,7 @@ export default function Input_Form() {
       if (hobby_checkbox[i].checked == true) {
         hobby_checkbox[i].checked = false;
         hobby_checkbox[i].className =
-          'inline-block px-6 py-2 border-2 border-red-300 text-red-300 text-sm leading-tight uppercase rounded-full border-red-300';
+          'inline-block px-6 py-2 border-2 border-red-300 text-red-300 text-sm leading-tight rounded-full border-red-300';
       }
     }
     if (all_clear) {
@@ -172,7 +186,7 @@ export default function Input_Form() {
         className="block py-3 px-4 w-full leading-tight text-gray-700 bg-white focus:bg-white rounded border border-gray-300 focus:border-red-500 focus:outline-none appearance-none"
         type="text"
         id="Name_input_form"
-        defaultValue=""
+        defaultValue={uuId}
       />
       <br />
 
@@ -228,6 +242,10 @@ export default function Input_Form() {
         </div>
       </div>
 
+      <br></br>
+
+      <label className="block pr-4 mb-1 text-xl text-red-500 md:mb-0 md:text-left">探す相手</label>
+      <Form_friend_type />
       <br></br>
 
       <label className="block pr-4 mb-1 text-xl text-red-500 md:mb-0 md:text-left">

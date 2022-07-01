@@ -13,7 +13,7 @@ const Header = (): JSX.Element => {
             <Link href="/">
               <a>
                 <h1 className="text-red-500">a</h1>
-                <h1 className="text-3xl font-bold text-gray-100 transition duration-150 ease-in-out hover:scale-110">
+                <h1 className="text-3xl font-bold text-gray-100 transition duration-150 ease-in-out">
                   tsunagg
                 </h1>
               </a>
@@ -96,7 +96,7 @@ const Header = (): JSX.Element => {
         <Link href="/">
           <a>
             <Image
-              className="absolute top-0 transition duration-150 ease-in-out hover:scale-110 "
+              className="absolute top-0 transition duration-150 ease-in-out"
               src="/icon.png"
               width={152}
               height={152}
