@@ -15,7 +15,7 @@ function handleOnClick_join_channel(e) {
   //POST request URL
   //'https://httpbin.org/post'
   const POST_request_URL = 'https://httpbin.org/post';
-  //{"data":{"Channel":{"channel_name":"Twitter_channel"},"Authorization":{"uuId":"User4KpZPzCR6zJy0KUX"}}}
+  //{"data":{"Channel":"Twitter_channel","Authorization":"User4KpZPzCR6zJy0KUX"}}
 
   var channel_name = e.currentTarget['name'];
   console.log(uuId, channel_name);
@@ -26,8 +26,8 @@ function handleOnClick_join_channel(e) {
 
   let args = {
     data: {
-      Channel: { channel_name },
-      Authorization: { uuId },
+      Channel: channel_name,
+      Authorization: uuId,
     },
   };
   //console.log(args);
