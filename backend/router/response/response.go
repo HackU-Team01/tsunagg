@@ -10,9 +10,10 @@ import (
 type ResponseErrorType string
 
 const (
-	FirestoreError ResponseErrorType = "firestore"
-	NotAuthedError ResponseErrorType = "not_authed"
-	SlackError     ResponseErrorType = "slack"
+	FirestoreError   ResponseErrorType = "firestore"
+	InvalidArgsError ResponseErrorType = "invalid_args"
+	NotAuthedError   ResponseErrorType = "not_authed"
+	SlackError       ResponseErrorType = "slack"
 )
 
 type Response struct {
