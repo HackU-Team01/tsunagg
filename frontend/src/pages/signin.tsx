@@ -29,7 +29,7 @@ const Signin: NextPage = () => {
         <Image src="/icon.png" width={250} height={200} />
         <p className="mt-6 text-xl font-bold text-center">アカウントにログイン</p>
         <Link
-          href={`https://slack.com/oauth/authorize?scope=team:read,users:read&client_id=${process.env.SLACK_CLIENT_ID}&state=${router.pathname}`}
+          href={`https://slack.com/oauth/v2/authorize?user_scope=channels:write,chat:write,team:read,users:read&client_id=${process.env.SLACK_CLIENT_ID}&state=${router.pathname}`}
         >
           <a>Slackでサインイン</a>
         </Link>
