@@ -30,7 +30,7 @@ export const oauthAccess = async (code: string): Promise<oauthAccessResponseType
   };
 
   try {
-    const res = await slackClient.post<oauthAccessResponseType>('oauth.access', requestArgs);
+    const res = await slackClient.post<oauthAccessResponseType>('oauth.v2.access', requestArgs);
     return res.data;
   } catch(e) {
     console.warn('Slack oauth was failed.', e);
